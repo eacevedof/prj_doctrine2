@@ -18,9 +18,10 @@ php vendor\doctrine\orm\bin\doctrine orm:convert-mapping --from-database annotat
 php vendor\doctrine\orm\bin\doctrine orm:convert-mapping --from-database xml ".\mappings-xml"
 
 php vendor\doctrine\orm\bin\doctrine orm:convert-mapping --from-database yaml ".\mappings-yaml"
+
 /*
-antes de esto hay que configurar la ruta de las anotaciones en bootstrap.php 
-$sPathSrc = __DIR__."/annotations";
+antes de esto hay que configurar la ruta de las anotaciones en bootstrap.php
+$sPathSrc = __DIR__."/mappings-annotations";
 estos archivos serian los modelos
 */
 php vendor\doctrine\orm\bin\doctrine orm:generate-entities ".\entities"
