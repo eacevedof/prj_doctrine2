@@ -1,9 +1,9 @@
 <?php
+namespace Entities;
 
 
-
-/**
- * AppActivity
+/** @Entity(repositoryClass="Repositories\AppActivityRepository")
+ *  @Table(name="app_activity")
  */
 class AppActivity
 {
