@@ -1,4 +1,4 @@
-# prj_elchalanaruba
+# prj_doctrine2
 
 ```
 comandos a ejecutar dentro de la carpeta del proyecto
