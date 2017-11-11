@@ -9,7 +9,7 @@ require_once "vendor/autoload.php";
 $isDevMode = true;
 //$sPathSrc = __DIR__."/entities";
 $sPathSrc = __DIR__."/mappings-annotations";
-$sPathSrc = __DIR__."/mappings-php";
+//$sPathSrc = __DIR__."/mappings-php";
 //$sPathSrc = __DIR__."/mappings-xml";
 //$sPathSrc = __DIR__."/mappings-yaml";
 $sPathSrc = realpath($sPathSrc);
@@ -19,11 +19,8 @@ $sPathSrc = realpath($sPathSrc);
  */
 $config = Setup::createAnnotationMetadataConfiguration([$sPathSrc], $isDevMode);
 //$config = Setup::createAnnotationMetadataConfiguration([$sPathSrc], $isDevMode, null, null, false);
-// or if you prefer yaml or XML
 //$config = Setup::createXMLMetadataConfiguration([$sPathSrc], $isDevMode);
 //$config = Setup::createYAMLMetadataConfiguration([$sPathSrc], $isDevMode);
-
-//var_dump($config);die;
 
 $sPathDb =  __DIR__."/the_application/appdb/db_doctrine.sqlite3";
 $sPathDb = realpath($sPathDb);
