@@ -1,0 +1,61 @@
+ComProfilesTables:
+    type: entity
+    table: com_profiles_tables
+    id:
+        id:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        processflag:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        isEnabled:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+                default: '1'
+            column: is_enabled
+        idComProfile:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_com_profile
+        idComTable:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_com_table
+        orderBy:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '100'
+            column: order_by
+        sqlOut:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: sql_out
+        sqlIn:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: sql_in
+    lifecycleCallbacks: {  }

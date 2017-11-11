@@ -1,0 +1,370 @@
+AppSuspicionInvolved:
+    type: entity
+    table: app_suspicion_involved
+    id:
+        id:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        processflag:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        insertPlatform:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+                default: '1'
+            column: insert_platform
+        insertUser:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: insert_user
+        insertDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: insert_date
+        updatePlatform:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: update_platform
+        updateUser:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: update_user
+        updateDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: update_date
+        deletePlatform:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: delete_platform
+        deleteUser:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: delete_user
+        deleteDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: delete_date
+        cruCsvnote:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: cru_csvnote
+        isErpsent:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: is_erpsent
+        isEnabled:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+                default: '1'
+            column: is_enabled
+        i:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        codeErp:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: code_erp
+        description:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        idSuspicion:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_suspicion
+        number:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        nrAccount:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: nr_account
+        nrCreditcard:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: nr_creditcard
+        nrMtcn:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: nr_mtcn
+        nrPolice:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: nr_police
+        nrBrief:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: nr_brief
+        nrClient:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: nr_client
+        nrExtra:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: nr_extra
+        subjName:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: subj_name
+        subjInfix1:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: subj_infix1
+        subjMarriedName:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: subj_married_name
+        subjInfix2:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: subj_infix2
+        subjInitials:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: subj_initials
+        subjFullName:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: subj_full_name
+        subjTypeSex:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: subj_type_sex
+        subjBirthdate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: subj_birthdate
+        subjBirthplace:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: subj_birthplace
+        subjBirthCountry:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: subj_birth_country
+        subjTypeNation:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: subj_type_nation
+        subjTypeProfession:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: subj_type_profession
+        iddoc:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        iddocType:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: iddoc_type
+        iddocIssueDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: iddoc_issue_date
+        iddocExpiryDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: iddoc_expiry_date
+        iddocIssuePlace:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: iddoc_issue_place
+        iddocIssueCountry:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: iddoc_issue_country
+        iddocNationality:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: iddoc_nationality
+        address:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        addressNr:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: address_nr
+        addressChars:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: address_chars
+        addressPlace:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: address_place
+        addressZip:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: address_zip
+        addressTypeCountry:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: address_type_country
+        phone:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        phoneType:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: phone_type
+        phoneTypeCountry:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: phone_type_country
+    lifecycleCallbacks: {  }

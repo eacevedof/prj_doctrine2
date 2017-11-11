@@ -1,0 +1,260 @@
+AppCustomer:
+    type: entity
+    table: app_customer
+    id:
+        id:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        processflag:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        insertPlatform:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+                default: '1'
+            column: insert_platform
+        insertUser:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: insert_user
+        insertDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: insert_date
+        updatePlatform:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: update_platform
+        updateUser:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: update_user
+        updateDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: update_date
+        deletePlatform:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: delete_platform
+        deleteUser:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: delete_user
+        deleteDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: delete_date
+        cruCsvnote:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: cru_csvnote
+        isErpsent:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: is_erpsent
+        isEnabled:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+                default: '1'
+            column: is_enabled
+        i:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        codeErp:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: code_erp
+        description:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        company:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        firstName:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: first_name
+        lastName1:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: last_name_1
+        lastName2:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: last_name_2
+        taxidNr:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: taxid_nr
+        address:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        email:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        phone1:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: phone_1
+        phone2:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: phone_2
+        contact:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        contactPhone:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: contact_phone
+        isRobinsonEmail:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: is_robinson_email
+        idCountry:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_country
+        idSeller:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+            column: id_seller
+        idType:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_type
+        lastSale:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            column: last_sale
+        isValidated:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: is_validated
+        idUserext:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_userext
+        idTypeGender:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_type_gender
+        birthdate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        bonusPoints:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            column: bonus_points
+    lifecycleCallbacks: {  }

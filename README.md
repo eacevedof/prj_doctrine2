@@ -4,7 +4,8 @@
 comandos a ejecutar dentro de la carpeta del proyecto
 
 /*
-los mappings php son los archivos con la configuración de los campos
+los mappings php son los archivos con la configuración de los campos.
+'fieldName','columnName','type','nullable','options','unsigned','id' => true,
 */
 php vendor\doctrine\orm\bin\doctrine orm:convert-mapping --from-database php ".\mappings-php"
 
@@ -14,6 +15,9 @@ Estos son necesarios para el resto de tipos como los entities
 */
 php vendor\doctrine\orm\bin\doctrine orm:convert-mapping --from-database annotation ".\mappings-annotations"
 
+php vendor\doctrine\orm\bin\doctrine orm:convert-mapping --from-database xml ".\mappings-xml"
+
+php vendor\doctrine\orm\bin\doctrine orm:convert-mapping --from-database yaml ".\mappings-yaml"
 /*
 antes de esto hay que configurar la ruta de las anotaciones en bootstrap.php 
 $sPathSrc = __DIR__."/annotations";

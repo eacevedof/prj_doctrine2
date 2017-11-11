@@ -1,0 +1,177 @@
+AppCmsAuthor:
+    type: entity
+    table: app_cms_author
+    id:
+        id:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        processflag:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        insertPlatform:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+                default: '1'
+            column: insert_platform
+        insertUser:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: insert_user
+        insertDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: insert_date
+        updatePlatform:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+                default: '1'
+            column: update_platform
+        updateUser:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: update_user
+        updateDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: update_date
+        deletePlatform:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: delete_platform
+        deleteUser:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: delete_user
+        deleteDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: delete_date
+        cruCsvnote:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: cru_csvnote
+        isErpsent:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: is_erpsent
+        isEnabled:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+                default: '1'
+            column: is_enabled
+        i:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        codeErp:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: code_erp
+        description:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        nickName:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: nick_name
+        slug:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        idUserext:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_userext
+        website:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        email:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        isActive:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+            column: is_active
+        urlPicture:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+                default: /images/custom/author_image_default.png
+            column: url_picture
+        signature:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

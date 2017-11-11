@@ -1,0 +1,229 @@
+BaseUsersGroupsPermissions:
+    type: entity
+    table: base_users_groups_permissions
+    id:
+        id:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        processflag:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        insertPlatform:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+                default: '1'
+            column: insert_platform
+        insertUser:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: insert_user
+        insertDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: insert_date
+        updatePlatform:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: update_platform
+        updateUser:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: update_user
+        updateDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: update_date
+        deletePlatform:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: delete_platform
+        deleteUser:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: delete_user
+        deleteDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: delete_date
+        cruCsvnote:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: cru_csvnote
+        isErpsent:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: is_erpsent
+        isEnabled:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+                default: '1'
+            column: is_enabled
+        i:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        codeErp:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: code_erp
+        description:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        idUserGroup:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+            column: id_user_group
+        idModule:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+            column: id_module
+        isShortcut:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+            column: is_shortcut
+        isSelectMenu:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+            column: is_select_menu
+        isInsertMenu:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+            column: is_insert_menu
+        isPick:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+            column: is_pick
+        isSelect:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+            column: is_select
+        isInsert:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+            column: is_insert
+        isRead:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+            column: is_read
+        isUpdate:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+            column: is_update
+        isDelete:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+            column: is_delete
+        isQuarantine:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+            column: is_quarantine
+        isExcelexport:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+            column: is_excelexport
+        isPrint:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+            column: is_print
+        isForeign:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+            column: is_foreign
+    lifecycleCallbacks: {  }

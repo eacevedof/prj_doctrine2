@@ -1,0 +1,363 @@
+AppPicture:
+    type: entity
+    table: app_picture
+    id:
+        id:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        processflag:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        insertPlatform:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+                default: '1'
+            column: insert_platform
+        insertUser:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: insert_user
+        insertDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: insert_date
+        updatePlatform:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: update_platform
+        updateUser:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: update_user
+        updateDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: update_date
+        deletePlatform:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: delete_platform
+        deleteUser:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: delete_user
+        deleteDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: delete_date
+        cruCsvnote:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: cru_csvnote
+        isErpsent:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: is_erpsent
+        isEnabled:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+                default: '1'
+            column: is_enabled
+        i:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        codeErp:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: code_erp
+        description:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        idType:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_type
+        idTypeEntity:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_type_entity
+        idEntity:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_entity
+        idOwnerEntity:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_owner_entity
+        idOwner:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_owner
+        uriLocal:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: uri_local
+        uriPublic:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: uri_public
+        filename:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        name:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        shortname:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        extension:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        createDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: create_date
+        modifyDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: modify_date
+        size:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        width:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        height:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        resolution:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        source:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        sourceFilename:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: source_filename
+        folder:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        parentPath:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: parent_path
+        information:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        informationExtra:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: information_extra
+        rating:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        imgTitle:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: img_title
+        anchorText:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: anchor_text
+        idThumb1:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_thumb_1
+        idThumb2:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_thumb_2
+        idThumb3:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_thumb_3
+        idThumb4:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_thumb_4
+        idThumb5:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_thumb_5
+        csvTags:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: csv_tags
+        show:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        isBydefault:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: is_bydefault
+        isPublic:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: is_public
+        isFile:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: is_file
+        isError:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: is_error
+        isRepeated:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: is_repeated
+        orderBy:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '100'
+            column: order_by
+    lifecycleCallbacks: {  }

@@ -1,0 +1,184 @@
+AppActivity:
+    type: entity
+    table: app_activity
+    id:
+        id:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        processflag:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        insertPlatform:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+                default: '1'
+            column: insert_platform
+        insertUser:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: insert_user
+        insertDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: insert_date
+        updatePlatform:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: update_platform
+        updateUser:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: update_user
+        updateDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: update_date
+        deletePlatform:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: delete_platform
+        deleteUser:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: delete_user
+        deleteDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: delete_date
+        cruCsvnote:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: cru_csvnote
+        isErpsent:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: is_erpsent
+        isEnabled:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+                default: '1'
+            column: is_enabled
+        i:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        codeErp:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: code_erp
+        description:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        dateProgrammed:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: date_programmed
+        hourProgrammedFrom:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: hour_programmed_from
+        hourProgrammedTo:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: hour_programmed_to
+        dateAccomplished:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: date_accomplished
+        hourAccomplishedFrom:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: hour_accomplished_from
+        hourAccomplishedTo:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: hour_accomplished_to
+        idCostumer:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_costumer
+        idSeller:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_seller
+        idContact:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_contact
+    lifecycleCallbacks: {  }

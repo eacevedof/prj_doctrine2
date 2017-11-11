@@ -1,0 +1,72 @@
+ComSyncpoolIn:
+    type: entity
+    table: com_syncpool_in
+    id:
+        id:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        idSync:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_sync
+        serverDatetime:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: server_datetime
+        deviceDatetime:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: device_datetime
+        csvKeys:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: csv_keys
+        csvValues:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: csv_values
+        serverStatus:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: server_status
+        deviceStatus:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: device_status
+        idDevicePool:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_device_pool
+        idTypeStatus:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_type_status
+    lifecycleCallbacks: {  }

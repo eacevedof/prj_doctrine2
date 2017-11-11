@@ -1,0 +1,79 @@
+BaseUser:
+    type: entity
+    table: base_user
+    id:
+        id:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        description:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        firstName:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: first_name
+        lastName:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: last_name
+        email:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        boLogin:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: bo_login
+        boPassword:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: bo_password
+        language:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        idLanguage:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_language
+        pathPicture:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: path_picture
+        idProfile:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_profile
+    lifecycleCallbacks: {  }

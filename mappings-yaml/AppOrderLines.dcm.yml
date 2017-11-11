@@ -1,0 +1,208 @@
+AppOrderLines:
+    type: entity
+    table: app_order_lines
+    id:
+        id:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        processflag:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        insertPlatform:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+                default: '1'
+            column: insert_platform
+        insertUser:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: insert_user
+        insertDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: insert_date
+        updatePlatform:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: update_platform
+        updateUser:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: update_user
+        updateDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: update_date
+        deletePlatform:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: delete_platform
+        deleteUser:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: delete_user
+        deleteDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: delete_date
+        cruCsvnote:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: cru_csvnote
+        isErpsent:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: is_erpsent
+        isEnabled:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+                default: '1'
+            column: is_enabled
+        i:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        codeErp:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: code_erp
+        line:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        idOrderHead:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_order_head
+        idAssortment:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_assortment
+        idProduct:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_product
+        idBonus:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_bonus
+        product:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        units:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+        unitPrice:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0.000'
+            column: unit_price
+        amount:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0.000'
+        discount:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0.000'
+        discountAmount:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0.000'
+            column: discount_amount
+        idTypeDiscount:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_type_discount
+        subtotal:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0.000'
+        isFree:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: is_free
+    lifecycleCallbacks: {  }

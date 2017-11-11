@@ -1,0 +1,205 @@
+AppCmsContentComments:
+    type: entity
+    table: app_cms_content_comments
+    id:
+        id:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        processflag:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        insertPlatform:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+                default: '1'
+            column: insert_platform
+        insertUser:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: insert_user
+        insertDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: insert_date
+        updatePlatform:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+                default: '1'
+            column: update_platform
+        updateUser:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: update_user
+        updateDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: update_date
+        deletePlatform:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: delete_platform
+        deleteUser:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: delete_user
+        deleteDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: delete_date
+        cruCsvnote:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: cru_csvnote
+        isErpsent:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: is_erpsent
+        isEnabled:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+                default: '1'
+            column: is_enabled
+        i:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        description:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        idContent:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_content
+        idType:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_type
+        idParent:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_parent
+        isActive:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+            column: is_active
+        isPublished:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: is_published
+        publishdate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        author:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        idAuthor:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_author
+        email:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        website:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        content:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        remoteIp:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: remote_ip
+        sessionid:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        orderBy:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '100'
+            column: order_by
+    lifecycleCallbacks: {  }

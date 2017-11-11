@@ -1,0 +1,252 @@
+AppProduct:
+    type: entity
+    table: app_product
+    id:
+        id:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        processflag:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        insertPlatform:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+                default: '1'
+            column: insert_platform
+        insertUser:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: insert_user
+        insertDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: insert_date
+        updatePlatform:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: update_platform
+        updateUser:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: update_user
+        updateDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: update_date
+        deletePlatform:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: delete_platform
+        deleteUser:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: delete_user
+        deleteDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: delete_date
+        cruCsvnote:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: cru_csvnote
+        isErpsent:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: is_erpsent
+        isEnabled:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+                default: '1'
+            column: is_enabled
+        i:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        codeErp:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: code_erp
+        description:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        idProductBrand:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+            column: id_product_brand
+        idProductFamily:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+            column: id_product_family
+        idProductSubfamily:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+            column: id_product_subfamily
+        name:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        idTypeContainer:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_type_container
+        idTypeSize:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_type_size
+        priceCost:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0.000'
+            column: price_cost
+        tax:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0.000'
+        taxAmount:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0.000'
+            column: tax_amount
+        priceTax:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0.000'
+            column: price_tax
+        priceRegular:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0.000'
+            column: price_regular
+        priceWholesale:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0.000'
+            column: price_wholesale
+        priceCustom:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0.000'
+            column: price_custom
+        priceOld:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0.000'
+            column: price_old
+        stock:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        bonusPoints:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0.000'
+            column: bonus_points
+        tagGroup:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: tag_group
+        observation:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

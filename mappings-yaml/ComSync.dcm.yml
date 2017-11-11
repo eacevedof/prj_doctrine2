@@ -1,0 +1,33 @@
+ComSync:
+    type: entity
+    table: com_sync
+    id:
+        id:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        idDeviceUser:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_device_user
+        lastDate:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: last_date
+        idTypeStatus:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_type_status
+    lifecycleCallbacks: {  }
