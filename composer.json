@@ -1,6 +1,7 @@
 {
     "require":{
 	"doctrine/orm": "^2.5",
+        "doctrine/doctrine-bundle": "*",
 	"symfony/yaml": "2.*"
     },
     "autoload":{
