@@ -40,6 +40,12 @@ no funciona, no crea el atributo repositoryClass
 */
 php vendor/doctrine/orm/bin/doctrine orm:generate-entities --filter Base[a-z,A-Z]* --generate-annotations=1 --generate-methods=1  ./entities-bundle
 
+/*
+Añado manualmente el atributo Entity(repositoryClass="")
+y ejecuto el comando
+*/
+php ./vendor/doctrine/orm/bin/doctrine orm:generate-repositories ./repositories-bundle
+
 ```
 
 # comando doctrine

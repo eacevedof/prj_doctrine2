@@ -19,6 +19,7 @@ $arPaths = [
     //-----------------------------------------------    
     "proxies"=> realpath(__DIR__."/proxies"),
     "entities"=> realpath(__DIR__."/entities"),
+    "entities-bundle"=> realpath(__DIR__."/entities-bundle"),
     "repositories"=> realpath(__DIR__."/repositories"),
 ];
 /**
@@ -26,6 +27,7 @@ $arPaths = [
  */
 //$config = Setup::createAnnotationMetadataConfiguration([$sPathSrc], $isDevMode);
 $config = Setup::createAnnotationMetadataConfiguration([$arPaths["mappings-annotations"]], $isDevMode, null, null, false);
+$config = Setup::createAnnotationMetadataConfiguration([$arPaths["entities-bundle"]], $isDevMode, null, null, false);
 //$config = Setup::createXMLMetadataConfiguration([$sPathSrc], $isDevMode);
 //$config = Setup::createYAMLMetadataConfiguration([$sPathSrc], $isDevMode);
 
