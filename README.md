@@ -41,7 +41,9 @@ no funciona, no crea el atributo repositoryClass
 php vendor/doctrine/orm/bin/doctrine orm:generate-entities --filter Base[a-z,A-Z]* --generate-annotations=1 --generate-methods=1  ./entities-bundle
 
 /*
-Añado manualmente el atributo Entity(repositoryClass="")
+Añado manualmente el atributo Entity(repositoryClass="") en las clases de la carpeta: "entities-bundle"
+Cambio en bootstrap el origen a "entities-bundle":
+createAnnotationMetadataConfiguration([$arPaths["entities-bundle"]], $isDevMode, null, null, false);
 y ejecuto el comando
 */
 php ./vendor/doctrine/orm/bin/doctrine orm:generate-repositories ./repositories-bundle
