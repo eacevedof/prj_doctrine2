@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * BaseSecurityAttempt
  *
  * @ORM\Table(name="base_security_attempt")
- * @ORM\Entity(repositoryClass="AppBundle\Entities\Base")
+ * @ORM\Entity(repositoryClass="AppBundle\Entities\BaseSecurityAttempt")
  */
 class BaseSecurityAttempt
 {

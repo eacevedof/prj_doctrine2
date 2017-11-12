@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * BaseSecurityTrack
  *
  * @ORM\Table(name="base_security_track")
- * @ORM\Entity(repositoryClass="AppBundle\Entities\Base")
+ * @ORM\Entity(repositoryClass="AppBundle\Entities\BaseSecurityTrack")
  */
 class BaseSecurityTrack
 {

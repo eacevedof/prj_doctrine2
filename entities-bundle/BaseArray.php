@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * BaseArray
  *
  * @ORM\Table(name="base_array")
- * @ORM\Entity(repositoryClass="AppBundle\Entities\Base")
+ * @ORM\Entity(repositoryClass="AppBundle\Entities\BaseArray")
  */
 class BaseArray
 {

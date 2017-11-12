@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * BaseUsersPermissions
  *
  * @ORM\Table(name="base_users_permissions")
- * @ORM\Entity(repositoryClass="AppBundle\Entities\Base")
+ * @ORM\Entity(repositoryClass="AppBundle\Entities\BaseUsersPermissions")
  */
 class BaseUsersPermissions
 {

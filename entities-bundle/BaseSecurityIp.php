@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * BaseSecurityIp
  *
  * @ORM\Table(name="base_security_ip")
- * @ORM\Entity(repositoryClass="AppBundle\Entities\Base")
+ * @ORM\Entity(repositoryClass="AppBundle\Entities\BaseSecurityIp")
  */
 class BaseSecurityIp
 {
