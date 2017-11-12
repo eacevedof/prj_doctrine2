@@ -1,6 +1,7 @@
 # prj_doctrine2
 
 https://www.youtube.com/watch?v=j4nS_dGxxs8
+https://github.com/Ocramius/Doctrine2ORMSlidesTutorial
 
 ```
 comandos a ejecutar dentro de la carpeta del proyecto
