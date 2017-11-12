@@ -1,5 +1,7 @@
 # prj_doctrine2
 
+https://www.youtube.com/watch?v=j4nS_dGxxs8
+
 ```
 comandos a ejecutar dentro de la carpeta del proyecto
 

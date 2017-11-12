@@ -7,7 +7,7 @@ require_once "vendor/autoload.php";
 
 // Create a simple "default" Doctrine ORM configuration for Annotations
 $isDevMode = true;
-//$sPathSrc = __DIR__."/mappings-annotations";
+$sPathSrc = __DIR__."/mappings-annotations";
 //$sPathSrc = __DIR__."/mappings-php";
 //$sPathSrc = __DIR__."/mappings-xml";
 //$sPathSrc = __DIR__."/mappings-yaml";
@@ -16,7 +16,7 @@ $isDevMode = true;
 //rutas anteriores
 //-----------------------------------------------
 //$sPathSrc = __DIR__."/proxies";
-$sPathSrc = __DIR__."/entities";
+//$sPathSrc = __DIR__."/entities";
 //$sPathSrc = __DIR__."/repositories";
 $sPathSrc = realpath($sPathSrc);
 
