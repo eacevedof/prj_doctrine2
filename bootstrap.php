@@ -24,7 +24,7 @@ $arPaths = [
     "repositories"=> realpath(__DIR__."/repositories"),
 ];
 
-if($applicationMode == "development"){
+if($isDevMode){
     $cache = new \Doctrine\Common\Cache\ArrayCache;
 }else{
     $cache = new \Doctrine\Common\Cache\ApcCache;
@@ -32,21 +32,27 @@ if($applicationMode == "development"){
 
 $config = new Configuration;
 $config->setMetadataCacheImpl($cache);
-$driverImpl = $config->newDefaultAnnotationDriver($arPaths["entities"]);
+$driverImpl = $config->newDefaultAnnotationDriver($arPaths["mappings-annotations"]);
 $config->setMetadataDriverImpl($driverImpl);
 $config->setQueryCacheImpl($cache);
 $config->setProxyDir($arPaths["proxies"]);
 $config->setProxyNamespace("MyProject\Proxies");
 
-if($applicationMode == "development"){
+//32.7. Default Repository (*OPTIONAL*)
+//$config->setDefaultRepositoryClassName("MyAppBundle");
+//$config->getDefaultRepositoryClassName();
+
+if($isDevMode){
     $config->setAutoGenerateProxyClasses(true);
 }else{
     $config->setAutoGenerateProxyClasses(false);
 }
 
+$sPathDb =  __DIR__."/the_application/appdb/db_doctrine.sqlite3";
+$sPathDb = realpath($sPathDb);
 $connectionOptions = array(
     "driver" => "pdo_sqlite",
     "path" => $sPathDb,
 );
 
-$em = EntityManager::create($connectionOptions, $config);
+$entityManager = EntityManager::create($connectionOptions, $config);
