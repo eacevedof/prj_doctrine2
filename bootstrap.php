@@ -15,6 +15,7 @@ $isDevMode = true;
 //Primero se debe generar algún tipo de metadato 
 //rutas anteriores
 //-----------------------------------------------
+//$sPathSrc = __DIR__."/proxies";
 $sPathSrc = __DIR__."/entities";
 //$sPathSrc = __DIR__."/repositories";
 $sPathSrc = realpath($sPathSrc);

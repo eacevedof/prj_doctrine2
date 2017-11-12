@@ -1,9 +1,11 @@
 <?php
-namespace Entities;
+// src/AppBundle/Entity/Product.php
+namespace AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 
-/** @Entity(repositoryClass="Repositories\AppActivityRepository")
- *  @Table(name="app_activity")
+/**
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\AppActivity")
  */
 class AppActivity
 {
