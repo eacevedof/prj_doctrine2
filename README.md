@@ -34,6 +34,12 @@ __load, __isInitialized, __setInitialized, __setInitializer, __getInitializer, _
 __getCloner, __getLazyProperties
 */
 php vendor\doctrine\orm\bin\doctrine orm:generate-proxies ".\proxies"
+
+/*
+no funciona, no crea el atributo repositoryClass
+*/
+php vendor/doctrine/orm/bin/doctrine orm:generate-entities --filter Base[a-z,A-Z]* --generate-annotations=1 --generate-methods=1  ./entities-bundle
+
 ```
 
 # comando doctrine

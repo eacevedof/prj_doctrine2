@@ -7,24 +7,25 @@ require_once "vendor/autoload.php";
 
 // Create a simple "default" Doctrine ORM configuration for Annotations
 $isDevMode = true;
-$sPathSrc = __DIR__."/mappings-annotations";
-//$sPathSrc = __DIR__."/mappings-php";
-//$sPathSrc = __DIR__."/mappings-xml";
-//$sPathSrc = __DIR__."/mappings-yaml";
-//-----------------------------------------------
-//Primero se debe generar algún tipo de metadato 
-//rutas anteriores
-//-----------------------------------------------
-//$sPathSrc = __DIR__."/proxies";
-//$sPathSrc = __DIR__."/entities";
-//$sPathSrc = __DIR__."/repositories";
-$sPathSrc = realpath($sPathSrc);
 
+$arPaths = [
+    "mappings-annotations"=> realpath(__DIR__."/mappings-annotations"),
+    "mappings-php"=> realpath(__DIR__."/mappings-php"),
+    "mappings-xml"=> realpath(__DIR__."/mappings-xml"),
+    "mappings-yaml"=> realpath(__DIR__."/mappings-yaml"),
+    //-----------------------------------------------
+    //Primero se debe generar algún tipo de metadato 
+    //rutas anteriores
+    //-----------------------------------------------    
+    "proxies"=> realpath(__DIR__."/proxies"),
+    "entities"=> realpath(__DIR__."/entities"),
+    "repositories"=> realpath(__DIR__."/repositories"),
+];
 /**
  * @type Doctrine\ORM\Configuration
  */
 //$config = Setup::createAnnotationMetadataConfiguration([$sPathSrc], $isDevMode);
-$config = Setup::createAnnotationMetadataConfiguration([$sPathSrc], $isDevMode, null, null, false);
+$config = Setup::createAnnotationMetadataConfiguration([$arPaths["mappings-annotations"]], $isDevMode, null, null, false);
 //$config = Setup::createXMLMetadataConfiguration([$sPathSrc], $isDevMode);
 //$config = Setup::createYAMLMetadataConfiguration([$sPathSrc], $isDevMode);
 
