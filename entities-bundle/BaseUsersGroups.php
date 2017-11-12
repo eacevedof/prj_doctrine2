@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * BaseUsersGroups
  *
  * @ORM\Table(name="base_users_groups")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Entities\Base")
  */
 class BaseUsersGroups
 {

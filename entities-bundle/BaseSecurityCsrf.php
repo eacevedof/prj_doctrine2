@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * BaseSecurityCsrf
  *
  * @ORM\Table(name="base_security_csrf")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Entities\Base")
  */
 class BaseSecurityCsrf
 {
