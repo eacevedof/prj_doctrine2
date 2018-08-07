@@ -1,7 +1,12 @@
 # prj_doctrine2
 
 https://www.youtube.com/watch?v=j4nS_dGxxs8
+
 https://github.com/Ocramius/Doctrine2ORMSlidesTutorial
+
+## Pruebas básicas de doctrine 2.5
+
+- Genero los distintos tipos de clases que admite doctrine a partir de la bd de sqlite
 
 ```
 comandos a ejecutar dentro de la carpeta del proyecto
