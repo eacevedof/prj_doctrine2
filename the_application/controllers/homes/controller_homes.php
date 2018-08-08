@@ -31,18 +31,19 @@ class ControllerHomes
         ];
         
         $arPaths["entities-bundle"] = realpath(TFW_PATH_PROJECTDS."entities-bundle");
-        //print_r($arPaths);die;
+        //print_r($arPaths);
         $oConfig = Setup::createAnnotationMetadataConfiguration([$arPaths["entities-bundle"]],$isDevMode, null, null, false);
-        //print_r($config);die;
+        //print_r($oConfig);
         $this->oEm = EntityManager::create($arDbConf,$oConfig);
+        //print_r($this->oEm);
     }
 
     public function index()
     {
         echo "<pre>";
         print_r("ControllerHomes.index()");
-        //$oBaseArray = $this->oEm->find("AppBundle\Entities\BaseArray",5);
-        $oBaseArray = $this->oEm->find("BaseArray",5);
+        $oBaseArray = $this->oEm->find("AppBundle\Entities\BaseArray",5);
+        //$oBaseArray = $this->oEm->find("BaseArray",5);
         print_r($oBaseArray);
     }
 
