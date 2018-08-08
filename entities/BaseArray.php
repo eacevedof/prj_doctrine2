@@ -1,114 +1,163 @@
 <?php
 
+namespace AppBundle\Entities;
 
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * BaseArray
+ *
+ * @ORM\Table(name="base_array")
+ * @ORM\Entity(repositoryClass="AppBundle\Entities\BaseArray")
  */
 class BaseArray
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", precision=0, scale=0, nullable=true, unique=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="processflag", type="text", precision=0, scale=0, nullable=true, unique=false)
      */
     private $processflag;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="insert_platform", type="text", precision=0, scale=0, nullable=true, unique=false)
      */
     private $insertPlatform;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="insert_user", type="text", precision=0, scale=0, nullable=true, unique=false)
      */
     private $insertUser;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="insert_date", type="text", precision=0, scale=0, nullable=true, unique=false)
      */
     private $insertDate;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="update_platform", type="text", precision=0, scale=0, nullable=true, unique=false)
      */
     private $updatePlatform;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="update_user", type="text", precision=0, scale=0, nullable=true, unique=false)
      */
     private $updateUser;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="update_date", type="text", precision=0, scale=0, nullable=true, unique=false)
      */
     private $updateDate;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="delete_platform", type="text", precision=0, scale=0, nullable=true, unique=false)
      */
     private $deletePlatform;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="delete_user", type="text", precision=0, scale=0, nullable=true, unique=false)
      */
     private $deleteUser;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="delete_date", type="text", precision=0, scale=0, nullable=true, unique=false)
      */
     private $deleteDate;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="cru_csvnote", type="text", precision=0, scale=0, nullable=true, unique=false)
      */
     private $cruCsvnote;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="is_erpsent", type="text", precision=0, scale=0, nullable=true, unique=false)
      */
     private $isErpsent;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="is_enabled", type="text", precision=0, scale=0, nullable=true, unique=false)
      */
     private $isEnabled;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="i", type="integer", precision=0, scale=0, nullable=true, unique=false)
      */
     private $i;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="code_erp", type="text", precision=0, scale=0, nullable=true, unique=false)
      */
     private $codeErp;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="type", type="text", precision=0, scale=0, nullable=true, unique=false)
      */
     private $type;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="module", type="text", precision=0, scale=0, nullable=true, unique=false)
      */
     private $module;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="id_tosave", type="text", precision=0, scale=0, nullable=true, unique=false)
      */
     private $idTosave;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="description", type="text", precision=0, scale=0, nullable=true, unique=false)
      */
     private $description;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="order_by", type="integer", precision=0, scale=0, nullable=false, unique=false)
      */
     private $orderBy;
 

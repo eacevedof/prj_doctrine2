@@ -9,8 +9,10 @@ use Doctrine\ORM\Tools\Setup,
 
 //autoloading
 require_once __DIR__ . '/vendor/autoload.php';
-$loader = new ClassLoader('Entity', __DIR__."/entities-bundle");
+$loader = new ClassLoader('AppBundle\Entities', __DIR__."/entities");
 $loader->register();
+//$loader = new ClassLoader('EntityProxy', __DIR__ . '/library');
+//$loader->register();
 
 //configuration
 $config = new Configuration();
@@ -19,6 +21,14 @@ $config->setQueryCacheImpl($cache);
 $config->setProxyDir(__DIR__ . '/proxies');
 $config->setProxyNamespace('EntityProxy');
 $config->setAutoGenerateProxyClasses(true);
+
+AnnotationRegistry::registerFile(__DIR__ . '/vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/Driver/DoctrineAnnotations.php');
+$driver = new Doctrine\ORM\Mapping\Driver\AnnotationDriver(
+    new Doctrine\Common\Annotations\AnnotationReader(),
+    array(__DIR__ . '/entities')
+);
+$config->setMetadataDriverImpl($driver);
+$config->setMetadataCacheImpl($cache);
 
 $sPathDb =  __DIR__."/the_application/appdb/db_doctrine.sqlite3";
 $sPathDb = realpath($sPathDb);

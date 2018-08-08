@@ -1,33 +1,18 @@
 <?php
-$sPathPublic = dirname(__FILE__);
-$sPathPublic = realpath($sPathPublic);
-define("TFW_PATH_PUBLIC",$sPathPublic);
-define("TFW_PATH_PUBLICDS",TFW_PATH_PUBLIC.DIRECTORY_SEPARATOR);
-$sPathProject = realpath(TFW_PATH_PUBLICDS."..");
-define("TFW_PATH_PROJECT",$sPathProject);
-define("TFW_PATH_PROJECTDS",TFW_PATH_PROJECT.DIRECTORY_SEPARATOR);
+//the_public/index.php 
+use AppBundle\Entities\BaseArray;
 
-$arPaths = [
-    get_include_path(),
-    "$sPathProject",
-    "$sPathProject/the_application",
-    "$sPathProject/entities-bundle",
-    "$sPathProject/repositories-bundle/AppBundle/Entities",
-];
-foreach($arPaths as $i=>$sPaths)
-    if($i>0)
-    {
-        $sPathFix = realpath($sPaths);
-        $arPaths[$i] = $sPathFix;
-    }
-//var_dump($arPaths);
-$sPathInclude = implode(PATH_SEPARATOR,$arPaths);
-set_include_path($sPathInclude);
+//esto tiene el entitymanager
+require_once __DIR__ . '/../bootstrap.php';
 
-include_once(TFW_PATH_PROJECTDS."vendor/autoload.php");
+//var_dump(get_included_files());die;
 
-$sPathController = realpath(TFW_PATH_PROJECTDS."the_application/controllers/homes/controller_homes.php");
-include_once $sPathController;
+//Creating our greeting
+$greeting = new BaseArray('Hello World!');
+//Registering $greeting with the EntityManager
+$entityManager->persist($greeting);
 
-$oController = new TheApplication\Controllers\ControllerHomes();
-$oController->index();
+//Flushing all changes to database
+$entityManager->flush();
+
+echo 'OK!';
