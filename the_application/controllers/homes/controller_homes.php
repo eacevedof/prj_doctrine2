@@ -42,7 +42,7 @@ class ControllerHomes
     {
         echo "<pre>";
         print_r("ControllerHomes.index()");
-        $oBaseArray = $this->oEm->find("AppBundle\Entities\BaseArray",5);
+        $oBaseArray = $this->oEm->find("Entity\BaseArray",5);
         //$oBaseArray = $this->oEm->find("BaseArray",5);
         print_r($oBaseArray);
     }
