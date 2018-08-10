@@ -1,6 +1,7 @@
 <?php
 //the_public/index.php 
-use Entity\Greeting;
+use Entityg\Greeting;
+//use AppBundle\Entities\Greeting;
 
 require_once __DIR__ . '/../bootstrap.php';
 
