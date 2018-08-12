@@ -1,5 +1,6 @@
 <?php
 //the_public/index.php 
+//@cambio ns
 use Entityg\Greeting;
 //use AppBundle\Entities\Greeting;
 

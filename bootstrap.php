@@ -10,6 +10,7 @@ use Doctrine\ORM\Tools\Setup,
 
 //autoloading
 require_once __DIR__ . '/vendor/autoload.php';
+//@cambio ns
 $loader = new ClassLoader('Entityg', __DIR__ . '/library');
 $loader->register();
 //$loader = new ClassLoader('EntityProxy', __DIR__ . '/library');
