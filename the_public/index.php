@@ -1,18 +1,18 @@
 <?php
 //the_public/index.php 
-//@cambio ns
-use Entityg\BaseArray;
-//use AppBundle\Entities\BaseArray;
+//@eaf ns
+use Entities\Greeting;
 
-require_once __DIR__ . '/../bootstrap.php';
+require_once __DIR__ . "/../bootstrap.php";
 
+//var_dump(get_included_files());
 //Creating our greeting
-$oEntity = new BaseArray('Eduardo');
-$oEntity->setOrderBy("1");
+$oEntity = new Greeting("Eduardo");
+//$oEntity->setOrderBy("1");
 //Registering $oEntity with the EntityManager
 $entityManager->persist($oEntity);
 
 //Flushing all changes to database
 $entityManager->flush();
 
-echo 'OK!';
+echo "OK!";

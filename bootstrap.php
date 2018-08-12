@@ -8,13 +8,14 @@ use Doctrine\ORM\Tools\Setup,
     Doctrine\Common\Annotations\AnnotationRegistry,
     Doctrine\Common\ClassLoader;
 
-//autoloading
+//clase para trazas
+require_once "dg.php";
 require_once __DIR__ . '/vendor/autoload.php';
-//@cambio ns
-$loader = new ClassLoader('Entityg', __DIR__ . '/library');
-$loader->register();
-//$loader = new ClassLoader('EntityProxy', __DIR__ . '/library');
+//@eaf ns
+//$loader = new ClassLoader('Entityg', __DIR__ . '/library');
 //$loader->register();
+$loader = new ClassLoader("Entities", __DIR__ . '/AppBundle');
+$loader->register();
 
 //configuration
 $config = new Configuration();
@@ -26,10 +27,10 @@ $config->setAutoGenerateProxyClasses(true);
 
 //mapping (example uses annotations, could be any of XML/YAML or plain PHP)
 //AnnotationRegistry::registerFile(__DIR__ . '/library/doctrine-orm/lib/Doctrine/ORM/Mapping/Driver/DoctrineAnnotations.php');
-AnnotationRegistry::registerFile(__DIR__ . '/vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/Driver/DoctrineAnnotations.php');
+AnnotationRegistry::registerFile(__DIR__ .'/vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/Driver/DoctrineAnnotations.php');
 $driver = new Doctrine\ORM\Mapping\Driver\AnnotationDriver(
     new Doctrine\Common\Annotations\AnnotationReader(),
-    array(__DIR__ . '/library/Entityg')
+    array(__DIR__ . '/AppBundle/Entities')
 );
 $config->setMetadataDriverImpl($driver);
 $config->setMetadataCacheImpl($cache);
@@ -42,5 +43,5 @@ $conn = array(
     "path" => $sPathDb,
 );
 
-// obtaining the entity manager
+//obtaining the entity manager
 $entityManager = EntityManager::create($conn, $config);

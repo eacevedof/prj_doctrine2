@@ -1,5 +1,5 @@
 <?php
-//@cambio ns
+//@eaf ns
 namespace Entityg;
 
 use Doctrine\ORM\Mapping as ORM;

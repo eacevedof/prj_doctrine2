@@ -78,6 +78,8 @@ class ClassLoader
     {
         $this->namespace = $ns;
         $this->includePath = $includePath;
+        
+        \dg::pl("ns:$ns,\nincpath:$includePath");
     }
 
     /**
@@ -153,6 +155,7 @@ class ClassLoader
      */
     public function register()
     {
+        //\dg::pl($this);die;
         spl_autoload_register([$this, 'loadClass']);
     }
 
@@ -175,14 +178,18 @@ class ClassLoader
      */
     public function loadClass($className)
     {
+        //\dg::pl("<pre>loadClass: ".$className."<br/>");
         if (self::typeExists($className)) {
+            \dg::pl("loadClass.typeExists.class: $className does not exist");
             return true;
         }
 
         if (! $this->canLoadClass($className)) {
+            \dg::pl("loadClass.canLoadClass.class: $className does not exist");
             return false;
         }
-
+        
+        \dg::pl("REQUIRE.loadclass");
         require ($this->includePath !== null ? $this->includePath . DIRECTORY_SEPARATOR : '')
                . str_replace($this->namespaceSeparator, DIRECTORY_SEPARATOR, $className)
                . $this->fileExtension;
@@ -200,12 +207,16 @@ class ClassLoader
      */
     public function canLoadClass($className)
     {
+        \dg::pl($this->includePath,"INCLUDEPATH");
         if ($this->namespace !== null && strpos($className, $this->namespace.$this->namespaceSeparator) !== 0) {
+            \dg::pl($this->namespace.$this->namespaceSeparator,"this->namespace.this->namespaceSeparator");
+            \dg::pl($className,"className");
             return false;
         }
 
-        $file = str_replace($this->namespaceSeparator, DIRECTORY_SEPARATOR, $className) . $this->fileExtension;
+        $file = str_replace($this->namespaceSeparator,DIRECTORY_SEPARATOR, $className) . $this->fileExtension;
 
+        \dg::pl($file,"canLoadClass.file");
         if ($this->includePath !== null) {
             return is_file($this->includePath . DIRECTORY_SEPARATOR . $file);
         }
@@ -277,4 +288,46 @@ class ClassLoader
             || interface_exists($type, $autoload)
             || trait_exists($type, $autoload);
     }
-}
+    
+    //@eaf
+    public static function bug($var,$sVarName="")
+    {
+        if(is_string($var))
+        {
+            $isSQL = false;
+            $arSQLWords = array("select","from","inner join","insert into","update","delete");
+            $sTmpVar = strtolower($var);
+            foreach($arSQLWords as $sWord)
+                //\dg::pl("word:$sWord, string:$sTmpVar",strpos($sWord,$sTmpVar));
+                if(strpos($sTmpVar,$sWord)!==false){$isSQL=true; break;}
+
+            //\dg::pl($isSQL);
+            if($isSQL)
+            {
+                if(!strpos($var,"\nFROM"));
+                    $var = str_replace("FROM","\nFROM",$var);
+                if(!strpos($var,"\nINNER"));
+                    $var = str_replace("INNER","\nINNER",$var);
+                if(!strpos($var,"\nLEFT"));
+                    $var = str_replace("LEFT","\nLEFT",$var);
+                if(!strpos($var,"\nRIGHT"));
+                    $var = str_replace("RIGHT","\nRIGHT",$var);
+                if(!strpos($var,"\nWHERE"));
+                    $var = str_replace("WHERE","\nWHERE",$var);
+                if(!strpos($var,"\nAND"));
+                    $var = str_replace("AND","\nAND",$var);
+                if(!strpos($var,"\nORDER BY"));
+                    $var = str_replace("ORDER BY","\nORDER BY",$var);
+            }
+        }
+        $sTagPre = "<pre function=\"bug\" style=\"background:#CDE552; padding:0px; color:black; font-size:12px;\">\n";
+        $sTagFinPre = "</pre>\n";
+        $nombreVariable = $sTagPre ."VARIABLE <b>$sVarName</b>:";
+        $nombreVariable .= $sTagFinPre;
+        echo $nombreVariable;
+        echo  "<pre style=\" background:#E2EDA8; font-size:12px; padding-left:10px; text-align:left; color:black; font-weight:normal; font-family: \'Courier New\', Courier, monospace !important;\">\n";
+        \dg::pl($var);
+        echo  "</pre>";        
+    }
+}//ClassLoader
+
