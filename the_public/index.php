@@ -1,7 +1,7 @@
 <?php
 //the_public/index.php 
 //@eaf ns
-use Entities\Greeting;
+use AppBundle\Entities\Greeting;
 
 require_once __DIR__ . "/../bootstrap.php";
 

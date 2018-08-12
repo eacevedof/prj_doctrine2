@@ -14,7 +14,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 //@eaf ns
 //$loader = new ClassLoader('Entityg', __DIR__ . '/library');
 //$loader->register();
-$loader = new ClassLoader("Entities", __DIR__ . '/AppBundle');
+$loader = new ClassLoader("AppBundle\Entities", __DIR__ . '/');
 $loader->register();
 
 //configuration
@@ -30,7 +30,7 @@ $config->setAutoGenerateProxyClasses(true);
 AnnotationRegistry::registerFile(__DIR__ .'/vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/Driver/DoctrineAnnotations.php');
 $driver = new Doctrine\ORM\Mapping\Driver\AnnotationDriver(
     new Doctrine\Common\Annotations\AnnotationReader(),
-    array(__DIR__ . '/AppBundle/Entities')
+    array(__DIR__ . '/')
 );
 $config->setMetadataDriverImpl($driver);
 $config->setMetadataCacheImpl($cache);
