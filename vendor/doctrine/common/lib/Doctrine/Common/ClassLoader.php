@@ -78,8 +78,7 @@ class ClassLoader
     {
         $this->namespace = $ns;
         $this->includePath = $includePath;
-        
-        \dg::pl("ns:$ns,\nincpath:$includePath");
+        //\dg::pl("ns:$ns,\nincpath:$includePath");
     }
 
     /**
@@ -155,7 +154,7 @@ class ClassLoader
      */
     public function register()
     {
-        //\dg::pl($this);die;
+        ////\dg::pl($this);die;
         spl_autoload_register([$this, 'loadClass']);
     }
 
@@ -178,18 +177,18 @@ class ClassLoader
      */
     public function loadClass($className)
     {
-        //\dg::pl("<pre>loadClass: ".$className."<br/>");
+        ////\dg::pl("<pre>loadClass: ".$className."<br/>");
         if (self::typeExists($className)) {
-            \dg::pl("loadClass.typeExists.class: $className does not exist");
+            //\dg::pl("loadClass.typeExists.class: $className does not exist");
             return true;
         }
 
         if (! $this->canLoadClass($className)) {
-            \dg::pl("loadClass.canLoadClass.class: $className does not exist");
+            //\dg::pl("loadClass.canLoadClass.class: $className does not exist");
             return false;
         }
         
-        \dg::pl("REQUIRE.loadclass");
+        //\dg::pl("REQUIRE.loadclass");
         require ($this->includePath !== null ? $this->includePath . DIRECTORY_SEPARATOR : '')
                . str_replace($this->namespaceSeparator, DIRECTORY_SEPARATOR, $className)
                . $this->fileExtension;
@@ -207,16 +206,16 @@ class ClassLoader
      */
     public function canLoadClass($className)
     {
-        \dg::pl($this->includePath,"INCLUDEPATH");
+        //\dg::pl($this->includePath,"INCLUDEPATH");
         if ($this->namespace !== null && strpos($className, $this->namespace.$this->namespaceSeparator) !== 0) {
-            \dg::pl($this->namespace.$this->namespaceSeparator,"this->namespace.this->namespaceSeparator");
-            \dg::pl($className,"className");
+            //\dg::pl($this->namespace.$this->namespaceSeparator,"this->namespace.this->namespaceSeparator");
+            //\dg::pl($className,"className");
             return false;
         }
 
         $file = str_replace($this->namespaceSeparator,DIRECTORY_SEPARATOR, $className) . $this->fileExtension;
 
-        \dg::pl($file,"canLoadClass.file");
+        //\dg::pl($file,"canLoadClass.file");
         if ($this->includePath !== null) {
             return is_file($this->includePath . DIRECTORY_SEPARATOR . $file);
         }
@@ -298,10 +297,10 @@ class ClassLoader
             $arSQLWords = array("select","from","inner join","insert into","update","delete");
             $sTmpVar = strtolower($var);
             foreach($arSQLWords as $sWord)
-                //\dg::pl("word:$sWord, string:$sTmpVar",strpos($sWord,$sTmpVar));
+                ////\dg::pl("word:$sWord, string:$sTmpVar",strpos($sWord,$sTmpVar));
                 if(strpos($sTmpVar,$sWord)!==false){$isSQL=true; break;}
 
-            //\dg::pl($isSQL);
+            ////\dg::pl($isSQL);
             if($isSQL)
             {
                 if(!strpos($var,"\nFROM"));
@@ -326,7 +325,7 @@ class ClassLoader
         $nombreVariable .= $sTagFinPre;
         echo $nombreVariable;
         echo  "<pre style=\" background:#E2EDA8; font-size:12px; padding-left:10px; text-align:left; color:black; font-weight:normal; font-family: \'Courier New\', Courier, monospace !important;\">\n";
-        \dg::pl($var);
+        //\dg::pl($var);
         echo  "</pre>";        
     }
 }//ClassLoader
