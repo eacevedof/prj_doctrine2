@@ -10,9 +10,12 @@ require_once __DIR__ . "/../bootstrap.php";
 $oEntity = new BaseArray("Eduardo");
 $oEntity->setOrderBy("1");
 //Registering $oEntity with the EntityManager
-$entityManager->persist($oEntity);
+$oEm->persist($oEntity);
 
 //Flushing all changes to database
-$entityManager->flush();
+$oEm->flush();
 
 echo "OK!";
+
+//\dg::pl($oEntity->find(1));
+\dg::pl($oEm->getRepository("AppBundle\Entities\BaseArray")->findAll());
