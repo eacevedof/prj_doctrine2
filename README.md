@@ -1,7 +1,6 @@
 # prj_doctrine2
 
-https://www.youtube.com/watch?v=j4nS_dGxxs8
-
+[Doctrine ORM Good Practices and Tricks - Marco "Ocramius" Pivetta @ PHP Antwerp](https://www.youtube.com/watch?v=j4nS_dGxxs8)
 https://github.com/Ocramius/Doctrine2ORMSlidesTutorial
 
 ## Pruebas básicas de doctrine 2.5
