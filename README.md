@@ -1,20 +1,22 @@
 # prj_doctrine2
 
-1. Doctrine se basa en un conjunto de patrones:
-    9.  [Youtube - SOLID ](https://www.youtube.com/watch?v=xrZ5KYw5_Zw)
+1.  Doctrine se basa en un conjunto de patrones:
+    1.  [Youtube - SOLID ](https://www.youtube.com/watch?v=xrZ5KYw5_Zw)
         0.  [Github - Repo](https://github.com/leomicheloni/SOLID-Principles-examples)
         1.  S: Single responsability principle
+            -   Cada clase deberia tener solo una tarea
+            -
         2.  O: Open close principle
         3.  L: Liskov sustitution principle
         4.  I: Interface segregation principle
         5.  D: Dependency inversion principle
 
-    10. [Youtube - introducción Arquitectura Hexagonal - DDD](https://www.youtube.com/watch?v=GZ9ic9QSO5U)
-        1. Complejidad accidental. Ñapas puntuales que a la larga repercuten en mantenimiento.
+    2.  [Youtube - introducción Arquitectura Hexagonal - DDD](https://www.youtube.com/watch?v=GZ9ic9QSO5U)
+        1.  Complejidad accidental. Ñapas puntuales que a la larga repercuten en mantenimiento.
         
-    20. Arquitectura de aplicaciones empresarial. (Patterns of Enterprise Application Architecture]
-    30. Dentro de ese patron se utiliza el patrón: ORMM (Object Relational Metadata Mapping Patterns)
-    40. [Youtube - A su vez este se apoya en el patrón: Repository](https://www.youtube.com/watch?v=mb6bwnEaZ3U)
+    3.  Arquitectura de aplicaciones empresarial. (Patterns of Enterprise Application Architecture]
+    4.  Dentro de ese patron se utiliza el patrón: ORMM (Object Relational Metadata Mapping Patterns)
+    5.  [Youtube - A su vez este se apoya en el patrón: Repository](https://www.youtube.com/watch?v=mb6bwnEaZ3U)
 
 ## Links
 1. [Youtube - Doctrine ORM Good Practices and Tricks - Marco "Ocramius" Pivetta @ PHP Antwerp](https://www.youtube.com/watch?v=j4nS_dGxxs8)
