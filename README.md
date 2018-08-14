@@ -2,7 +2,7 @@
 
 ## Doctrine se basa en un conjunto de patrones:
 
-1.  [Youtube - SOLID explicación resumida](https://www.youtube.com/watch?v=xrZ5KYw5_Zw)
+1. **SOLID** [Youtube - SOLID explicación resumida](https://www.youtube.com/watch?v=xrZ5KYw5_Zw)
     1.  [Github - Repo del ejemplo del video](https://github.com/leomicheloni/SOLID-Principles-examples)
     2.  S: Single responsability principle
         - Este principio ayuda a determinar que partes de la app son partes diferentes y separarlas
@@ -24,6 +24,9 @@
         rompiendo este principio
 
     6.  D: Dependency inversion principle
+        - Se evita usar el constructor new dentro de los metodos de la clase
+        - Se definie un servicelocator, (es un repositorio de objetos). con metodos factoria
+        - El servicelocator gestionaria la inyección de dependencias
 
 2.  [Youtube - introducción Arquitectura Hexagonal - DDD](https://www.youtube.com/watch?v=GZ9ic9QSO5U)
     1.  Complejidad accidental. Ñapas puntuales que a la larga repercuten en mantenimiento.
