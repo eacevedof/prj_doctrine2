@@ -4,26 +4,26 @@
 
 1. **SOLID** [Youtube - SOLID explicación resumida](https://www.youtube.com/watch?v=xrZ5KYw5_Zw)
     1.  [Github - Repo del ejemplo del video](https://github.com/leomicheloni/SOLID-Principles-examples)
-    2.  S: Single responsability principle
+    2.  **S**: Single responsability principle
         - Este principio ayuda a determinar que partes de la app son partes diferentes y separarlas
         - Cada clase deberia tener solo una tarea
         - Es mejor tener muchas clases con pocas lineas de código que lo contrario
 
-    3.  O: Open close principle
+    3.  **O**: Open close principle
         - Que las clases tengan partes públicas para elementos que interactuen con otras clases
         - Mantener las partes privadas para aquellos atributos que intervengan en la tarea especifica a la que está destinada la clase
         - Permitir que las clases tengan acceso a objetos que utilizan usando metodos públicos
 
-    4.  L: Liskov sustitution principle
+    4.  **L**: Liskov sustitution principle
         - Se debe permitir sustituir una clase hija por la clase padre
         - No cumplir con este principio hace que la aplicación no sea escalable
 
-    5.  I: Interface segregation principle
+    5.  **I**: Interface segregation principle
         - Un cliente no debe ser forzado a implementar metodos que no usa
         - Si defino una interfaz con un metodo que va a quedar como vacio en algunas de las clases que la implementen, entonces se esta
         rompiendo este principio
 
-    6.  D: Dependency inversion principle
+    6.  **D**: Dependency inversion principle
         - Se evita usar el constructor new dentro de los metodos de la clase
         - Se definie un servicelocator, (es un repositorio de objetos). con metodos factoria
         - El servicelocator gestionaria la inyección de dependencias
