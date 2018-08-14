@@ -1,12 +1,18 @@
 # prj_doctrine2
 
-1. Creo que doctrine sigue un conjunto de patrones:
-    0. [Youtube - introducción Arquitectura Hexagonal - DDD](https://www.youtube.com/watch?v=GZ9ic9QSO5U)
+1. Doctrine se basa en un conjunto de patrones:
+    09. [Youtube - SOLID ](https://www.youtube.com/watch?v=xrZ5KYw5_Zw)
+        1. S:
+        2. O:
+        3. L:
+        4. I:
+        5. D:
+    10. [Youtube - introducción Arquitectura Hexagonal - DDD](https://www.youtube.com/watch?v=GZ9ic9QSO5U)
         1. Complejidad accidental. Ñapas puntuales que a la larga repercuten en mantenimiento.
         
-    1. Arquitectura de aplicaciones empresarial. (Patterns of Enterprise Application Architecture]
-    2. Dentro de ese patron se utiliza el patrón: ORMM (Object Relational Metadata Mapping Patterns)
-    3. [Youtube - A su vez este se apoya en el patrón: Repository](https://www.youtube.com/watch?v=mb6bwnEaZ3U)
+    20. Arquitectura de aplicaciones empresarial. (Patterns of Enterprise Application Architecture]
+    30. Dentro de ese patron se utiliza el patrón: ORMM (Object Relational Metadata Mapping Patterns)
+    40. [Youtube - A su vez este se apoya en el patrón: Repository](https://www.youtube.com/watch?v=mb6bwnEaZ3U)
 
 ## Links
 1. [Youtube - Doctrine ORM Good Practices and Tricks - Marco "Ocramius" Pivetta @ PHP Antwerp](https://www.youtube.com/watch?v=j4nS_dGxxs8)
