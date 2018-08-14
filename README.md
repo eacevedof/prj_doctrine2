@@ -1,14 +1,13 @@
 # prj_doctrine2
 
 1. Doctrine se basa en un conjunto de patrones:
-    09. [Youtube - SOLID ](https://www.youtube.com/watch?v=xrZ5KYw5_Zw)
-        0. [Github - Repo](https://github.com/leomicheloni/SOLID-Principles-examples)
-        1. S: Single responsability principle
-            
-        2. O: Open close principle
-        3. L: Liskov sustitution principle
-        4. I: Interface segregation principle
-        5. D: Dependency inversion principle
+    9.  [Youtube - SOLID ](https://www.youtube.com/watch?v=xrZ5KYw5_Zw)
+        0.  [Github - Repo](https://github.com/leomicheloni/SOLID-Principles-examples)
+        1.  S: Single responsability principle
+        2.  O: Open close principle
+        3.  L: Liskov sustitution principle
+        4.  I: Interface segregation principle
+        5.  D: Dependency inversion principle
 
     10. [Youtube - introducción Arquitectura Hexagonal - DDD](https://www.youtube.com/watch?v=GZ9ic9QSO5U)
         1. Complejidad accidental. Ñapas puntuales que a la larga repercuten en mantenimiento.
