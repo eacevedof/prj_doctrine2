@@ -2,11 +2,13 @@
 
 1. Doctrine se basa en un conjunto de patrones:
     09. [Youtube - SOLID ](https://www.youtube.com/watch?v=xrZ5KYw5_Zw)
-        1. S:
-        2. O:
-        3. L:
-        4. I:
-        5. D:
+        1. S: Single responsability principle
+            
+        2. O: Open close principle
+        3. L: Liskov sustitution principle
+        4. I: Interface segregation principle
+        5. D: Dependency inversion principle
+
     10. [Youtube - introducción Arquitectura Hexagonal - DDD](https://www.youtube.com/watch?v=GZ9ic9QSO5U)
         1. Complejidad accidental. Ñapas puntuales que a la larga repercuten en mantenimiento.
         
