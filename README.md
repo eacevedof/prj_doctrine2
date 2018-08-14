@@ -4,10 +4,16 @@
 
     1.  [Youtube - SOLID explicación resumida](https://www.youtube.com/watch?v=xrZ5KYw5_Zw)
         1.  [Github - Repo del ejemplo del video](https://github.com/leomicheloni/SOLID-Principles-examples)
-        1.  S: Single responsability principle
-            -   Cada clase deberia tener solo una tarea
-            -
-        2.  O: Open close principle
+        2.  S: Single responsability principle
+            - Este principio ayuda a determinar que partes de la app son partes diferentes y separarlas
+            - Cada clase deberia tener solo una tarea
+            - Es mejor tener muchas clases con pocas lineas de código que lo contrario
+
+        3.  O: Open close principle
+            - Que las clases tengan partes públicas para elementos que interactuen con otras clases
+            - Mantener las partes privadas para aquellos atributos que intervengan en la tarea especifica a la que está destinada la clase
+            
+
         4.  L: Liskov sustitution principle
         5.  I: Interface segregation principle
         6.  D: Dependency inversion principle
