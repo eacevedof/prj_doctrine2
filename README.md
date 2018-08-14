@@ -1,29 +1,29 @@
 # prj_doctrine2
 
-1.  Doctrine se basa en un conjunto de patrones:
+## Doctrine se basa en un conjunto de patrones:
 
-    1.  [Youtube - SOLID explicación resumida](https://www.youtube.com/watch?v=xrZ5KYw5_Zw)
-        1.  [Github - Repo del ejemplo del video](https://github.com/leomicheloni/SOLID-Principles-examples)
-        2.  S: Single responsability principle
-            - Este principio ayuda a determinar que partes de la app son partes diferentes y separarlas
-            - Cada clase deberia tener solo una tarea
-            - Es mejor tener muchas clases con pocas lineas de código que lo contrario
+1.  [Youtube - SOLID explicación resumida](https://www.youtube.com/watch?v=xrZ5KYw5_Zw)
+    1.  [Github - Repo del ejemplo del video](https://github.com/leomicheloni/SOLID-Principles-examples)
+    2.  S: Single responsability principle
+        - Este principio ayuda a determinar que partes de la app son partes diferentes y separarlas
+        - Cada clase deberia tener solo una tarea
+        - Es mejor tener muchas clases con pocas lineas de código que lo contrario
 
-        3.  O: Open close principle
-            - Que las clases tengan partes públicas para elementos que interactuen con otras clases
-            - Mantener las partes privadas para aquellos atributos que intervengan en la tarea especifica a la que está destinada la clase
-            
+    3.  O: Open close principle
+        - Que las clases tengan partes públicas para elementos que interactuen con otras clases
+        - Mantener las partes privadas para aquellos atributos que intervengan en la tarea especifica a la que está destinada la clase
 
-        4.  L: Liskov sustitution principle
-        5.  I: Interface segregation principle
-        6.  D: Dependency inversion principle
 
-    2.  [Youtube - introducción Arquitectura Hexagonal - DDD](https://www.youtube.com/watch?v=GZ9ic9QSO5U)
-        1.  Complejidad accidental. Ñapas puntuales que a la larga repercuten en mantenimiento.
-        
-    3.  Arquitectura de aplicaciones empresarial. (Patterns of Enterprise Application Architecture]
-    4.  Dentro de ese patron se utiliza el patrón: ORMM (Object Relational Metadata Mapping Patterns)
-    5.  [Youtube - A su vez este se apoya en el patrón: Repository](https://www.youtube.com/watch?v=mb6bwnEaZ3U)
+    4.  L: Liskov sustitution principle
+    5.  I: Interface segregation principle
+    6.  D: Dependency inversion principle
+
+2.  [Youtube - introducción Arquitectura Hexagonal - DDD](https://www.youtube.com/watch?v=GZ9ic9QSO5U)
+    1.  Complejidad accidental. Ñapas puntuales que a la larga repercuten en mantenimiento.
+
+3.  Arquitectura de aplicaciones empresarial. (Patterns of Enterprise Application Architecture]
+4.  Dentro de ese patron se utiliza el patrón: ORMM (Object Relational Metadata Mapping Patterns)
+5.  [Youtube - A su vez este se apoya en el patrón: Repository](https://www.youtube.com/watch?v=mb6bwnEaZ3U)
 
 ## Links
 1. [Youtube - Doctrine ORM Good Practices and Tricks - Marco "Ocramius" Pivetta @ PHP Antwerp](https://www.youtube.com/watch?v=j4nS_dGxxs8)
