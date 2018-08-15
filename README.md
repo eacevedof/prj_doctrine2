@@ -37,8 +37,9 @@
 5.  [Youtube - A su vez este se apoya en el patrón: Repository](https://www.youtube.com/watch?v=mb6bwnEaZ3U)
 
 ## Links
-1. [Youtube - Doctrine ORM Good Practices and Tricks - Marco "Ocramius" Pivetta @ PHP Antwerp](https://www.youtube.com/watch?v=j4nS_dGxxs8)
-2. https://github.com/Ocramius/Doctrine2ORMSlidesTutorial
+1. [Youtube - SOLID - Principios de diseño de software y patrones de diseño](https://www.youtube.com/watch?v=j_ZnM8FJcmA)
+2. [Youtube - Doctrine ORM Good Practices and Tricks - Marco "Ocramius" Pivetta @ PHP Antwerp](https://www.youtube.com/watch?v=j4nS_dGxxs8)
+3. https://github.com/Ocramius/Doctrine2ORMSlidesTutorial
 
 ## Pruebas básicas de doctrine 2.5
 
