@@ -19,6 +19,7 @@
         - No cumplir con este principio hace que la aplicación no sea escalable
 
     5.  **I**: Interface segregation principle
+        - [Youtube - SOLID - Principio de Responsabilidad Única y de Segregación de Interfaces](https://www.youtube.com/watch?v=c97P1UmF1cs)
         - Un cliente no debe ser forzado a implementar metodos que no usa
         - Si defino una interfaz con un metodo que va a quedar como vacio en algunas de las clases que la implementen, entonces se esta
         rompiendo este principio
