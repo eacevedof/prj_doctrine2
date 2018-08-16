@@ -1,5 +1,6 @@
 <?php
-// bootstrap.php BASIC 01
+//die("bootstrap_orig.php");
+// bootstrap_orig.php BASIC 01
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
@@ -28,6 +29,7 @@ $arPaths = [
 //$oConfig = Setup::createAnnotationMetadataConfiguration([$sPathSrc], $isDevMode);
 $oConfig = Setup::createAnnotationMetadataConfiguration([$arPaths["mappings-annotations"]],$isDevMode,null,null,false);
 $oConfig = Setup::createAnnotationMetadataConfiguration([$arPaths["entities-bundle"]],$isDevMode,null,null,false);
+$oConfig = Setup::createAnnotationMetadataConfiguration([$arPaths["entities"]],$isDevMode,null,null,false);
 
 //$oConfig = Setup::createXMLMetadataConfiguration([$sPathSrc], $isDevMode);   //XML
 //$oConfig = Setup::createYAMLMetadataConfiguration([$sPathSrc], $isDevMode);  //YAML
@@ -41,4 +43,4 @@ $oConn = array(
 );
 
 // obtaining the entity manager
-$oEm = EntityManager::create($oConn, $oConfig);
+$oEm = EntityManager::create($oConn,$oConfig);
