@@ -26,10 +26,11 @@ $arPaths = [
  * @type Doctrine\ORM\Configuration
  */
 //$oConfig = Setup::createAnnotationMetadataConfiguration([$sPathSrc], $isDevMode);
-$oConfig = Setup::createAnnotationMetadataConfiguration([$arPaths["mappings-annotations"]], $isDevMode, null, null, false);
-$oConfig = Setup::createAnnotationMetadataConfiguration([$arPaths["entities-bundle"]], $isDevMode, null, null, false);
-//$oConfig = Setup::createXMLMetadataConfiguration([$sPathSrc], $isDevMode);
-//$oConfig = Setup::createYAMLMetadataConfiguration([$sPathSrc], $isDevMode);
+$oConfig = Setup::createAnnotationMetadataConfiguration([$arPaths["mappings-annotations"]],$isDevMode,null,null,false);
+$oConfig = Setup::createAnnotationMetadataConfiguration([$arPaths["entities-bundle"]],$isDevMode,null,null,false);
+
+//$oConfig = Setup::createXMLMetadataConfiguration([$sPathSrc], $isDevMode);   //XML
+//$oConfig = Setup::createYAMLMetadataConfiguration([$sPathSrc], $isDevMode);  //YAML
 
 $sPathDb =  __DIR__."/the_application/appdb/db_doctrine.sqlite3";
 $sPathDb = realpath($sPathDb);
