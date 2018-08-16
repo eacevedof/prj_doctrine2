@@ -43,40 +43,7 @@
 
 ## Pruebas básicas de doctrine 2.5
 
---
 ## Comandos a ejecutar dentro de la carpeta del proyecto
-
-### Mappings PHP
-```
-php vendor\doctrine\orm\bin\doctrine orm:convert-mapping --from-database php ".\mappings-php"
-```
-
-Los **mappings-php** son los archivos con la configuración de los campos.
-'fieldName','columnName','type','nullable','options','unsigned','id' => true,
-
-- **Ejemplo Mappings PHP**
-```php
-<?php
-//AppArray.php
-use Doctrine\ORM\Mapping\ClassMetadataInfo;
-
-$metadata->setInheritanceType(ClassMetadataInfo::INHERITANCE_TYPE_NONE);
-$metadata->setPrimaryTable(array(
-   'name' => 'app_array',
-  ));
-$metadata->setChangeTrackingPolicy(ClassMetadataInfo::CHANGETRACKING_DEFERRED_IMPLICIT);
-$metadata->mapField(array(
-   'fieldName' => 'id',
-   'columnName' => 'id',
-   'type' => 'integer',
-   'nullable' => true,
-   'options' => 
-   array(
-   'unsigned' => false,
-   ),
-   'id' => true,
-  ));
-```
 
 ### Mappings Annotation, XML, YAML
 ```
@@ -87,8 +54,10 @@ php vendor\doctrine\orm\bin\doctrine orm:convert-mapping --from-database xml ".\
 php vendor\doctrine\orm\bin\doctrine orm:convert-mapping --from-database yaml ".\mappings-yaml"
 ```
 
-- Los **mappings annotations** son los archivos con los atributos en private y configurados con valor por defecto.
-Estos son necesarios para el resto de tipos como los entities
+- Los **mappings annotations** son los archivos de metadatos con los atributos en private y configurados con valor por defecto.
+- Estos ficheros son necesarios para generar el resto de tipos como los entities
+- Despues de generar estas clases habria que configurar Entity(repositoryClass="") con los namespaces oportunos
+- Ejemplo: `* @ORM\Entity(repositoryClass="AppBundle\Entities\BaseArray")`
 
 - **Ejemplo Mappings - Annotation (PHP)**
 ```php
@@ -153,17 +122,53 @@ AppArray:
                 fixed: false
 ```
 
+### Mappings PHP
+```
+php vendor\doctrine\orm\bin\doctrine orm:convert-mapping --from-database php ".\mappings-php"
+```
+
+Los **mappings-php** son los archivos con la configuración de los campos.
+'fieldName','columnName','type','nullable','options','unsigned','id' => true,
+
+- **Ejemplo Mappings PHP**
+```php
+<?php
+//AppArray.php
+use Doctrine\ORM\Mapping\ClassMetadataInfo;
+
+$metadata->setInheritanceType(ClassMetadataInfo::INHERITANCE_TYPE_NONE);
+$metadata->setPrimaryTable(array(
+   'name' => 'app_array',
+  ));
+$metadata->setChangeTrackingPolicy(ClassMetadataInfo::CHANGETRACKING_DEFERRED_IMPLICIT);
+$metadata->mapField(array(
+   'fieldName' => 'id',
+   'columnName' => 'id',
+   'type' => 'integer',
+   'nullable' => true,
+   'options' => 
+   array(
+   'unsigned' => false,
+   ),
+   'id' => true,
+  ));
+```
+
+
 ### Entities
 ```
 php vendor\doctrine\orm\bin\doctrine orm:generate-entities ".\entities"
 ```
 
-- Las **Entities** son los archivos con los atributos mapeados con los campos de las tablas y sus anotaciones
-de tipado. 
-- Llevan implementadas sus **getters** y sus **setters**. 
+- Las **Entities** son los archivos con los `atributos = campos` de las tablas y sus anotaciones de tipado. 
+- Llevan implementadas sus **getters** y sus **setters**.
 - Son los modelos de dominio.
 - Antes de ejecutar el comando de entitites hay que configurar la ruta de las anotaciones en **bootstrap.php**
-`$sPathSrc = __DIR__."/mappings-annotations"`;
+`$sPathSrc = __DIR__."/mappings-annotations";` Se le tiene que indicar a doctrine donde se encuentran los metadatos de modo que con estas anotaciones
+sea capaz de generar los modelos 
+- La dif entre Entities y Entities-Bundle es que 'bundle' tiene más anotaciones que son necesarias para crear el bundle de repositorio
+- 
+
 ```php
 $config = Setup::createAnnotationMetadataConfiguration([$arPaths["mappings-annotations"]]
         ,$isDevMode,null,null,false);
@@ -218,6 +223,12 @@ class AppArray
         return $this->processflag;
     }
 ```
+
+### Entities Bundle (entities-bundle)
+```
+php vendor/doctrine/orm/bin/doctrine orm:generate-entities --filter Base[a-z,A-Z]* --generate-annotations=1 --generate-methods=1  ./entities-bundle
+```
+
 
 ### Proxies
 ```
@@ -365,14 +376,6 @@ class AppArray extends \AppArray implements \Doctrine\ORM\Proxy\Proxy
 ```
 
 ```
-
-/*
-son clases tipo __CG__<NomTabla>.php con métodos básicos 
-__load, __isInitialized, __setInitialized, __setInitializer, __getInitializer, __setCloner,
-__getCloner, __getLazyProperties
-*/
-php vendor\doctrine\orm\bin\doctrine orm:generate-proxies ".\proxies"
-
 /*
 no funciona, no crea el atributo repositoryClass
 */
