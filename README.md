@@ -164,7 +164,7 @@ de tipado sus **getters** y sus **setters**.  Son los modelos de dominio.
 
 - **Ejemplo Entities**
 ```php
-<?
+<?php
 //Entities/AppArray.php
 /**
  * AppArray
@@ -181,6 +181,35 @@ class AppArray
      */
     private $processflag;
 
+...
+    /**
+     * Get id
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set processflag
+     * @param string $processflag
+     * @return AppArray
+     */
+    public function setProcessflag($processflag)
+    {
+        $this->processflag = $processflag;
+        return $this;
+    }
+
+    /**
+     * Get processflag
+     * @return string
+     */
+    public function getProcessflag()
+    {
+        return $this->processflag;
+    }
 ```
 
 ```
