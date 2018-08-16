@@ -47,11 +47,13 @@
 
 ### Mappings Annotation, XML, YAML
 ```
-php vendor\doctrine\orm\bin\doctrine orm:convert-mapping --from-database annotation ".\mappings-annotations"
+php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --from-database --filter App[a-z,A-Z]* --namespace "Models/Application/"  annotation "./mappings-annotations"
+php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --from-database --filter Base[a-z,A-Z]* --namespace "Models/Base/"  annotation "./mappings-annotations"
+php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --from-database --filter Com[a-z,A-Z]* --namespace "Models/Comms/"  annotation "./mappings-annotations"
 
-php vendor\doctrine\orm\bin\doctrine orm:convert-mapping --from-database xml ".\mappings-xml"
+php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --from-database xml "./mappings-xml"
 
-php vendor\doctrine\orm\bin\doctrine orm:convert-mapping --from-database yaml ".\mappings-yaml"
+php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --from-database yaml "./mappings-yaml"
 ```
 
 - Los **mappings annotations** son los archivos de metadatos con los atributos en private y configurados con valor por defecto.
@@ -153,11 +155,15 @@ $metadata->mapField(array(
    'id' => true,
   ));
 ```
-
+### Entities Bundle (entities-bundle)
+- Antes de ejecutar este comando hay que configurar la ruta de las anotaciones en archivo bootstrap.php
+```
+php vendor/doctrine/orm/bin/doctrine orm:generate-entities --filter Base[a-z,A-Z]* --generate-annotations=1 --generate-methods=1  ./entities-bundle
+```
 
 ### Entities
 ```
-php vendor\doctrine\orm\bin\doctrine orm:generate-entities ".\entities"
+php vendor/doctrine/orm/bin/doctrine orm:generate-entities "./entities"
 ```
 
 - Las **Entities** son los archivos con los `atributos = campos` de las tablas y sus anotaciones de tipado. 
@@ -224,12 +230,6 @@ class AppArray
     }
 ```
 
-### Entities Bundle (entities-bundle)
-```
-php vendor/doctrine/orm/bin/doctrine orm:generate-entities --filter Base[a-z,A-Z]* --generate-annotations=1 --generate-methods=1  ./entities-bundle
-```
-
-
 ### Proxies
 ```
 php vendor\doctrine\orm\bin\doctrine orm:generate-proxies ".\proxies"
@@ -240,7 +240,7 @@ php vendor\doctrine\orm\bin\doctrine orm:generate-proxies ".\proxies"
 __getCloner, __getLazyProperties
 
 
-- **Ejemplo Entities**
+- **Ejemplo Proxy**
 ```php
 <?php
 namespace DoctrineProxies\__CG__;
