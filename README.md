@@ -158,15 +158,16 @@ AppArray:
 php vendor\doctrine\orm\bin\doctrine orm:generate-entities ".\entities"
 ```
 
-- Las **Entities** son los archivos con los atributos mapeados a los campos de las tablas con sus anotaciones
-de tipado sus **getters** y sus **setters**. Son los modelos de dominio.
+- Las **Entities** son los archivos con los atributos mapeados con los campos de las tablas y sus anotaciones
+de tipado. 
+- Llevan implementadas sus **getters** y sus **setters**. 
+- Son los modelos de dominio.
 - Antes de ejecutar el comando de entitites hay que configurar la ruta de las anotaciones en **bootstrap.php**
-$sPathSrc = __DIR__."/mappings-annotations";
+`$sPathSrc = __DIR__."/mappings-annotations"`;
 ```php
 $config = Setup::createAnnotationMetadataConfiguration([$arPaths["mappings-annotations"]]
         ,$isDevMode,null,null,false);
 ```
-- Estos archivos serian los modelos. 
 
 - **Ejemplo Entities**
 ```php
