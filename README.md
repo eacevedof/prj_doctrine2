@@ -163,7 +163,8 @@ de tipado sus **getters** y sus **setters**. Son los modelos de dominio.
 - Antes de ejecutar el comando de entitites hay que configurar la ruta de las anotaciones en **bootstrap.php**
 $sPathSrc = __DIR__."/mappings-annotations";
 ```php
-$config = Setup::createAnnotationMetadataConfiguration([$arPaths["mappings-annotations"]], $isDevMode, null, null, false);
+$config = Setup::createAnnotationMetadataConfiguration([$arPaths["mappings-annotations"]]
+        ,$isDevMode,null,null,false);
 ```
 - Estos archivos serian los modelos. 
 
