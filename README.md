@@ -47,8 +47,8 @@
 
 ### Mappings Annotation, XML, YAML
 ```
-php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --from-database --filter App[a-z,A-Z]* --namespace "Models/Application/"  annotation "./mappings-annotations"
-php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --from-database --filter Base[a-z,A-Z]* --namespace "Models/Base/"  annotation "./mappings-annotations"
+php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --filter AppP  --from-database --namespace="Models\Application\\"  annotation "./mappings-annotations"
+php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --filter Base[a-z,A-Z]+  --from-database --namespace="Models\Base\\"  annotation "./mappings-annotations"
 php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --from-database --filter Com[a-z,A-Z]* --namespace "Models/Comms/"  annotation "./mappings-annotations"
 
 php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --from-database xml "./mappings-xml"
