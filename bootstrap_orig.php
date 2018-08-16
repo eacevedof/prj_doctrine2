@@ -25,19 +25,19 @@ $arPaths = [
 /**
  * @type Doctrine\ORM\Configuration
  */
-//$config = Setup::createAnnotationMetadataConfiguration([$sPathSrc], $isDevMode);
-$config = Setup::createAnnotationMetadataConfiguration([$arPaths["mappings-annotations"]], $isDevMode, null, null, false);
-$config = Setup::createAnnotationMetadataConfiguration([$arPaths["entities-bundle"]], $isDevMode, null, null, false);
-//$config = Setup::createXMLMetadataConfiguration([$sPathSrc], $isDevMode);
-//$config = Setup::createYAMLMetadataConfiguration([$sPathSrc], $isDevMode);
+//$oConfig = Setup::createAnnotationMetadataConfiguration([$sPathSrc], $isDevMode);
+$oConfig = Setup::createAnnotationMetadataConfiguration([$arPaths["mappings-annotations"]], $isDevMode, null, null, false);
+$oConfig = Setup::createAnnotationMetadataConfiguration([$arPaths["entities-bundle"]], $isDevMode, null, null, false);
+//$oConfig = Setup::createXMLMetadataConfiguration([$sPathSrc], $isDevMode);
+//$oConfig = Setup::createYAMLMetadataConfiguration([$sPathSrc], $isDevMode);
 
 $sPathDb =  __DIR__."/the_application/appdb/db_doctrine.sqlite3";
 $sPathDb = realpath($sPathDb);
 // database configuration parameters
-$conn = array(
+$oConn = array(
     "driver" => "pdo_sqlite",
     "path" => $sPathDb,
 );
 
 // obtaining the entity manager
-$entityManager = EntityManager::create($conn, $config);
+$oEm = EntityManager::create($oConn, $oConfig);
