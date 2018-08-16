@@ -46,7 +46,7 @@
 --
 ## Comandos a ejecutar dentro de la carpeta del proyecto
 
-### Mappings
+### Mappings PHP
 ```
 php vendor\doctrine\orm\bin\doctrine orm:convert-mapping --from-database php ".\mappings-php"
 ```
@@ -54,7 +54,7 @@ php vendor\doctrine\orm\bin\doctrine orm:convert-mapping --from-database php ".\
 Los **mappings-php** son los archivos con la configuración de los campos.
 'fieldName','columnName','type','nullable','options','unsigned','id' => true,
 
-- **Ejemplo**
+- **Ejemplo Mappings PHP**
 ```php
 <?php
 //AppArray.php
@@ -78,7 +78,7 @@ $metadata->mapField(array(
   ));
 ```
 
-### Mappings Annotations, XML, YAML
+### Mappings Annotation, XML, YAML
 ```
 php vendor\doctrine\orm\bin\doctrine orm:convert-mapping --from-database annotation ".\mappings-annotations"
 
@@ -87,8 +87,9 @@ php vendor\doctrine\orm\bin\doctrine orm:convert-mapping --from-database xml ".\
 php vendor\doctrine\orm\bin\doctrine orm:convert-mapping --from-database yaml ".\mappings-yaml"
 ```
 
-las mappings annotations son los archivos con los atributos en private y configurados con valor por defecto
+Los **mappings annotations** son los archivos con los atributos en private y configurados con valor por defecto
 Estos son necesarios para el resto de tipos como los entities
+
 
 - **Ejemplo Mappings - Annotation (PHP)**
 ```php
@@ -153,19 +154,43 @@ AppArray:
                 fixed: false
 ```
 
+### Entities
+```
+php vendor\doctrine\orm\bin\doctrine orm:generate-entities ".\entities"
 ```
 
-/*
+Las **Entities** son los archivos con los atributos mapeados a los campos de las tablas con sus anotaciones
+de tipado sus **getters** y sus **setters**.  Son los modelos de dominio.
 
-*/
+- **Ejemplo Entities**
+```php
+<?
+//Entities/AppArray.php
+/**
+ * AppArray
+ */
+class AppArray
+{
+    /**
+     * @var integer
+     */
+    private $id;
 
+    /**
+     * @var string
+     */
+    private $processflag;
+
+```
+
+```
 
 /*
 antes de esto hay que configurar la ruta de las anotaciones en bootstrap.php
 $sPathSrc = __DIR__."/mappings-annotations";
 estos archivos serian los modelos
 */
-php vendor\doctrine\orm\bin\doctrine orm:generate-entities ".\entities"
+
 
 /*
 son clases tipo __CG__<NomTabla>.php con métodos básicos 
