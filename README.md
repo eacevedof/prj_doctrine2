@@ -51,10 +51,10 @@
 php vendor\doctrine\orm\bin\doctrine orm:convert-mapping --from-database php ".\mappings-php"
 ```
 
-los mappings php son los archivos con la configuración de los campos.
+Los **mappings-php** son los archivos con la configuración de los campos.
 'fieldName','columnName','type','nullable','options','unsigned','id' => true,
 
-- Ejemplo
+- **Ejemplo**
 ```php
 <?php
 //AppArray.php
@@ -78,17 +78,87 @@ $metadata->mapField(array(
   ));
 ```
 
+### Mappings Annotations, XML, YAML
 ```
-
-/*
-las mappings annotations son los archivos con los atributos en private y configurados con valor por defecto
-Estos son necesarios para el resto de tipos como los entities
-*/
 php vendor\doctrine\orm\bin\doctrine orm:convert-mapping --from-database annotation ".\mappings-annotations"
 
 php vendor\doctrine\orm\bin\doctrine orm:convert-mapping --from-database xml ".\mappings-xml"
 
 php vendor\doctrine\orm\bin\doctrine orm:convert-mapping --from-database yaml ".\mappings-yaml"
+```
+
+las mappings annotations son los archivos con los atributos en private y configurados con valor por defecto
+Estos son necesarios para el resto de tipos como los entities
+
+- **Ejemplo Mappings - Annotation (PHP)**
+```php
+<?php
+//AppArray.php
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * AppArray
+ *
+ * @ORM\Table(name="app_array")
+ * @ORM\Entity
+ */
+class AppArray
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=true)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+```
+- **Ejemplo Mappings - XML**
+```xml
+//AppArray.dcm.xml
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppArray" table="app_array">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="processflag" type="text" column="processflag" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+```
+
+- **Ejemplo Mappings - YML**
+```yml
+AppArray:
+    type: entity
+    table: app_array
+    id:
+        id:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        processflag:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+```
+
+```
+
+/*
+
+*/
+
 
 /*
 antes de esto hay que configurar la ruta de las anotaciones en bootstrap.php
