@@ -43,16 +43,42 @@
 
 ## Pruebas básicas de doctrine 2.5
 
-
+--
 ## Comandos a ejecutar dentro de la carpeta del proyecto
 
 ### Mappings
 ```
-/*
+php vendor\doctrine\orm\bin\doctrine orm:convert-mapping --from-database php ".\mappings-php"
+```
+
 los mappings php son los archivos con la configuración de los campos.
 'fieldName','columnName','type','nullable','options','unsigned','id' => true,
-*/
-php vendor\doctrine\orm\bin\doctrine orm:convert-mapping --from-database php ".\mappings-php"
+
+- Ejemplo
+```php
+<?php
+//AppArray.php
+use Doctrine\ORM\Mapping\ClassMetadataInfo;
+
+$metadata->setInheritanceType(ClassMetadataInfo::INHERITANCE_TYPE_NONE);
+$metadata->setPrimaryTable(array(
+   'name' => 'app_array',
+  ));
+$metadata->setChangeTrackingPolicy(ClassMetadataInfo::CHANGETRACKING_DEFERRED_IMPLICIT);
+$metadata->mapField(array(
+   'fieldName' => 'id',
+   'columnName' => 'id',
+   'type' => 'integer',
+   'nullable' => true,
+   'options' => 
+   array(
+   'unsigned' => false,
+   ),
+   'id' => true,
+  ));
+```
+
+```
 
 /*
 las mappings annotations son los archivos con los atributos en private y configurados con valor por defecto

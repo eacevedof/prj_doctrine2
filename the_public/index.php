@@ -17,5 +17,6 @@ $oEm->flush();
 
 echo "OK!";
 
+
 //\dg::pl($oEntity->find(1));
-\dg::pl($oEm->getRepository("AppBundle\Entities\BaseArray")->findAll());
+//\dg::pl($oEm->getRepository("AppBundle\Entities\BaseArray")->findAll());
