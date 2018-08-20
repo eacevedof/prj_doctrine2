@@ -60,7 +60,7 @@ php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --filter App[A-Z]  --fr
 php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --filter Base[A-Z]  --from-database --namespace="Models\Base\\"  annotation "./mappings-annotations"
 php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --filter Com[A-Z]  --from-database --namespace "Models\Comms\\"  annotation "./mappings-annotations"
 
-# Campos para loader
+# Campos para loader, no admite flag annotation
 php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --from-database php "./mappings-php"
 ```
 
@@ -97,7 +97,7 @@ class AppActivity
     private $processflag;
 ```
 
-#### Mapeo de campos
+#### Mapeo de campos en PHP (sin anotaciones)
 ```
 php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --filter AppActivity --from-database php "./mappings-php"
 ```
@@ -128,7 +128,7 @@ $metadata->mapField(array(
   ));
 ```
 
-#### Mappings Annotation, XML, YAML
+#### Mapeo de campos en XML y YAML (sin anotaciones)
 ```
 php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --from-database xml "./mappings-xml"
 php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --from-database yaml "./mappings-yaml"
