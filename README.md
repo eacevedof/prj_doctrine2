@@ -281,7 +281,8 @@ class AppArray
 
 ### REPOSITORIES (comando: generate-repositories)
 - Antes de ejecutar este comando hay que configurar en **bootstrap.php** la ruta del/de los archivos de mapeo de campos generados con el 
-comando `orm:convert-mapping` `$oConfig = Setup::createAnnotationMetadataConfiguration([$arPaths["mappings-annotations"]],$isDevMode,null,null,false);`
+comando `orm:convert-mapping` 
+- `$oConfig = Setup::createAnnotationMetadataConfiguration([$arPaths["mappings-annotations"]],$isDevMode,null,null,false);`
 - La anotación:  `@ORM\Entity` debe pasar a ser `@ORM\Entity(repositoryClass="Repositories\Application\AppActivityRepository")`
 
 ```bash
