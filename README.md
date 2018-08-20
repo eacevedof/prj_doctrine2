@@ -279,9 +279,10 @@ class AppArray
     }
 ```
 
-### Proxies
+### PROXIES (comando: orm:generate-proxies)
+- antes de ejecutar este comando es necesario tener configurada la ruta de archivos con anotaciones. Incluso valdria una **"Entidad"** con **@ORM\**
 ```
-php vendor\doctrine\orm\bin\doctrine orm:generate-proxies ".\proxies"
+php vendor/doctrine/orm/bin/doctrine orm:generate-proxies --filter AppActivity "./proxies"
 ```
 
 - Son clases tipo __CG__<NomTabla>.php con métodos básicos: 
@@ -423,6 +424,8 @@ class AppArray extends \AppArray implements \Doctrine\ORM\Proxy\Proxy
     public function __getLazyProperties(){return self::$lazyPropertiesDefaults;}
 }
 ```
+
+
 
 ```
 /*

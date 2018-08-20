@@ -27,15 +27,14 @@ $arPaths = [
 /**
  * @type Doctrine\ORM\Configuration
  */
-
 //$oConfig = Setup::createAnnotationMetadataConfiguration([$sPathSrc], $isDevMode);
-//$oConfig = Setup::createAnnotationMetadataConfiguration([$arPaths["mappings-annotations"]],$isDevMode,null,null,false);
-//$oConfig = Setup::createAnnotationMetadataConfiguration([$arPaths["entities-bundle"]],$isDevMode,null,null,false);
+$oConfig = Setup::createAnnotationMetadataConfiguration([$arPaths["mappings-annotations"]],$isDevMode,null,null,false);
 //$oConfig = Setup::createAnnotationMetadataConfiguration([$arPaths["mappings-php"]],$isDevMode,null,null,false);
 //$oConfig = Setup::createAnnotationMetadataConfiguration([$arPaths["mappings-xml"]],$isDevMode,null,null,false);
 //$oConfig = Setup::createAnnotationMetadataConfiguration([$arPaths["entities"]],$isDevMode,null,null,false);
+//$oConfig = Setup::createAnnotationMetadataConfiguration([$arPaths["entities-bundle"]],$isDevMode,null,null,false);
 //$oConfig = Setup::createAnnotationMetadataConfiguration([$arPaths["repositories"]],$isDevMode,null,null,false);
-$oConfig = Setup::createAnnotationMetadataConfiguration([$arPaths["empty"]],$isDevMode,null,null,false);
+//$oConfig = Setup::createAnnotationMetadataConfiguration([$arPaths["empty"]],$isDevMode,null,null,false);
 
 //$oConfig = Setup::createXMLMetadataConfiguration([$sPathSrc], $isDevMode);   //XML
 //$oConfig = Setup::createYAMLMetadataConfiguration([$sPathSrc], $isDevMode);  //YAML
