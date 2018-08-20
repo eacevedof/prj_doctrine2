@@ -425,28 +425,39 @@ class AppArray extends \AppArray implements \Doctrine\ORM\Proxy\Proxy
 }
 ```
 
+### REPOSITORIES (comando: generate-repositories)
+- Antes de ejecutar este comando hay que configurar en **bootstrap.php** la ruta del/de los archivos de mapeo de campos generados con el 
+comando `orm:convert-mapping`
 
-
+```bash
+php vendor/doctrine/orm/bin/doctrine orm:generate-repositories --filter AppActivity ./repositories
 ```
-/*
-no funciona, no crea el atributo repositoryClass
-*/
-php vendor/doctrine/orm/bin/doctrine orm:generate-entities --filter Base[a-z,A-Z]* --generate-annotations=1 --generate-methods=1  ./entities-bundle
 
-/*
-Añado manualmente el atributo Entity(repositoryClass="") en las clases de la carpeta: "entities-bundle"
-Cambio en bootstrap el origen a "entities-bundle":
-createAnnotationMetadataConfiguration([$arPaths["entities-bundle"]], $isDevMode, null, null, false);
-y ejecuto el comando
-*/
-php ./vendor/doctrine/orm/bin/doctrine orm:generate-repositories ./repositories-bundle
+- Me está dando este error:
+```
+Notice: Undefined variable: metadata in C:\xampp\htdocs\borrame\mappings-php\AppActivity.php on line 5
+
+Fatal error: Uncaught Error: Call to a member function setInheritanceType() on null in C:\xampp\htdocs\borrame\mappings-php\AppActivity.php:5
+Stack trace:
+#0 C:\xampp\htdocs\borrame\vendor\doctrine\common\lib\Doctrine\Common\Persistence\Mapping\Driver\AnnotationDriver.php(236): 
+    require_once()
+    
+#1 C:\xampp\htdocs\borrame\vendor\doctrine\common\lib\Doctrine\Common\Persistence\Mapping\AbstractClassMetadataFactory.php(114): 
+    Doctrine\Common\Persistence\Mapping\Driver\AnnotationDriver->getAllClassNames()
+    
+#2 C:\xampp\htdocs\borrame\vendor\doctrine\orm\lib\Doctrine\ORM\Tools\Console\Command\GenerateRepositoriesCommand.php(73): 
+    Doctrine\Common\Persistence\Mapping\AbstractClassMetadataFactory->getAllMetadata()
+    
+#3 C:\xampp\htdocs\borrame\vendor\symfony\console\Command\Command.php(264): 
+    Doctrine\ORM\Tools\Console\Command\GenerateRepositoriesCommand->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+    
+#4 C:\xampp\htdocs\borrame\vendor\symfony\console\Application.php(841): 
+    S in C:\xampp\htdocs\borrame\mappings-php\AppActivity.php on line 5
 
 ```
 
 # comando doctrine
 ```
-# 
-
 Doctrine Command Line Interface 2.5.12
 
 Usage:
