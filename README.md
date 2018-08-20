@@ -65,7 +65,7 @@ php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --from-database php "./
 ```
 
 #### Mapeo de Entidades
-- **Ejemplo Mappings - Annotation (Modelo con ns,getset y anotaciones)**
+- **Ejemplo Mappings - Annotation (Modelo con: ns, get-set y anotaciones)**
 ```
 php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --filter AppActivity  --from-database --namespace="Models\Application\\"  annotation "./mappings-annotations"
 ```
@@ -108,12 +108,11 @@ Los **mappings-php** son los archivos con la configuración de los campos.
 - **Ejemplo Mappings - Campos**
 ```php
 <?php
-//AppArray.php
+//AppActivity.php
 use Doctrine\ORM\Mapping\ClassMetadataInfo;
-
 $metadata->setInheritanceType(ClassMetadataInfo::INHERITANCE_TYPE_NONE);
 $metadata->setPrimaryTable(array(
-   'name' => 'app_array',
+   'name' => 'app_activity',
   ));
 $metadata->setChangeTrackingPolicy(ClassMetadataInfo::CHANGETRACKING_DEFERRED_IMPLICIT);
 $metadata->mapField(array(
