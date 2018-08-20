@@ -53,43 +53,22 @@
 - Despues de generar estas clases habria que configurar Entity(repositoryClass="") con los namespaces oportunos
 - Ejemplo: `* @ORM\Entity(repositoryClass="AppBundle\Entities\BaseArray")`
 
-### Mappings (archivos .php)
+#### Mappings (archivos .php)
 ```
+# Entidades
 php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --filter App[A-Z]  --from-database --namespace="Models\Application\\"  annotation "./mappings-annotations"
 php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --filter Base[A-Z]  --from-database --namespace="Models\Base\\"  annotation "./mappings-annotations"
 php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --filter Com[A-Z]  --from-database --namespace "Models\Comms\\"  annotation "./mappings-annotations"
 
+# Campos para loader
 php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --from-database php "./mappings-php"
 ```
 
-Los **mappings-php** son los archivos con la configuración de los campos.
-'fieldName','columnName','type','nullable','options','unsigned','id' => true,
-
-- **Ejemplo Mappings PHP**
-```php
-<?php
-//AppArray.php
-use Doctrine\ORM\Mapping\ClassMetadataInfo;
-
-$metadata->setInheritanceType(ClassMetadataInfo::INHERITANCE_TYPE_NONE);
-$metadata->setPrimaryTable(array(
-   'name' => 'app_array',
-  ));
-$metadata->setChangeTrackingPolicy(ClassMetadataInfo::CHANGETRACKING_DEFERRED_IMPLICIT);
-$metadata->mapField(array(
-   'fieldName' => 'id',
-   'columnName' => 'id',
-   'type' => 'integer',
-   'nullable' => true,
-   'options' => 
-   array(
-   'unsigned' => false,
-   ),
-   'id' => true,
-  ));
+#### Mapeo de Entidades
+- **Ejemplo Mappings - Annotation (Modelo con ns,getset y anotaciones)**
 ```
-
-- **Ejemplo Mappings - Annotation (PHP)**
+php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --filter AppActivity  --from-database --namespace="Models\Application\\"  annotation "./mappings-annotations"
+```
 
 ```php
 <?php
@@ -118,8 +97,39 @@ class AppActivity
     private $processflag;
 ```
 
+#### Mapeo de campos
+```
+php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --filter AppActivity --from-database php "./mappings-php"
+```
 
-### Mappings Annotation, XML, YAML
+Los **mappings-php** son los archivos con la configuración de los campos.
+'fieldName','columnName','type','nullable','options','unsigned','id' => true,
+
+- **Ejemplo Mappings - Campos**
+```php
+<?php
+//AppArray.php
+use Doctrine\ORM\Mapping\ClassMetadataInfo;
+
+$metadata->setInheritanceType(ClassMetadataInfo::INHERITANCE_TYPE_NONE);
+$metadata->setPrimaryTable(array(
+   'name' => 'app_array',
+  ));
+$metadata->setChangeTrackingPolicy(ClassMetadataInfo::CHANGETRACKING_DEFERRED_IMPLICIT);
+$metadata->mapField(array(
+   'fieldName' => 'id',
+   'columnName' => 'id',
+   'type' => 'integer',
+   'nullable' => true,
+   'options' => 
+   array(
+   'unsigned' => false,
+   ),
+   'id' => true,
+  ));
+```
+
+#### Mappings Annotation, XML, YAML
 ```
 php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --from-database xml "./mappings-xml"
 php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --from-database yaml "./mappings-yaml"
@@ -164,13 +174,13 @@ AppArray:
 ```
 
 
-### Entities Bundle (entities-bundle)
+#### Entities Bundle (entities-bundle)
 - Antes de ejecutar este comando hay que configurar la ruta de las anotaciones en archivo bootstrap.php
 ```
 php vendor/doctrine/orm/bin/doctrine orm:generate-entities --filter Base[a-z,A-Z]* --generate-annotations=1 --generate-methods=1  ./entities-bundle
 ```
 
-### Entities
+#### Entities
 ```
 php vendor/doctrine/orm/bin/doctrine orm:generate-entities "./entities"
 ```
