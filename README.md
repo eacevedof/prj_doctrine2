@@ -40,50 +40,89 @@
 1. [Youtube - SOLID - Principios de diseño de software y patrones de diseño](https://www.youtube.com/watch?v=j_ZnM8FJcmA)
 2. [Youtube - Doctrine ORM Good Practices and Tricks - Marco "Ocramius" Pivetta @ PHP Antwerp](https://www.youtube.com/watch?v=j4nS_dGxxs8)
 3. https://github.com/Ocramius/Doctrine2ORMSlidesTutorial
+4. [Blog - Generate Doctrine2 from existing db](https://jejakroda.wordpress.com/2011/02/03/generate-doctrine2-mappings-from-existing-database/)
 
 ## Pruebas básicas de doctrine 2.5
 
 ## Comandos a ejecutar dentro de la carpeta del proyecto
 
-### Mappings Annotation, XML, YAML
-```
-php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --filter AppP  --from-database --namespace="Models\Application\\"  annotation "./mappings-annotations"
-php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --filter Base[a-z,A-Z]+  --from-database --namespace="Models\Base\\"  annotation "./mappings-annotations"
-php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --from-database --filter Com[a-z,A-Z]* --namespace "Models/Comms/"  annotation "./mappings-annotations"
-
-php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --from-database xml "./mappings-xml"
-
-php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --from-database yaml "./mappings-yaml"
-```
+### MAPPINGS ANNOTATION
 
 - Los **mappings annotations** son los archivos de metadatos con los atributos en private y configurados con valor por defecto.
 - Estos ficheros son necesarios para generar el resto de tipos como los entities
 - Despues de generar estas clases habria que configurar Entity(repositoryClass="") con los namespaces oportunos
 - Ejemplo: `* @ORM\Entity(repositoryClass="AppBundle\Entities\BaseArray")`
 
-- **Ejemplo Mappings - Annotation (PHP)**
+### Mappings (archivos .php)
+```
+php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --filter App[A-Z]  --from-database --namespace="Models\Application\\"  annotation "./mappings-annotations"
+php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --filter Base[A-Z]  --from-database --namespace="Models\Base\\"  annotation "./mappings-annotations"
+php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --filter Com[A-Z]  --from-database --namespace "Models\Comms\\"  annotation "./mappings-annotations"
+
+php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --from-database php "./mappings-php"
+```
+
+Los **mappings-php** son los archivos con la configuración de los campos.
+'fieldName','columnName','type','nullable','options','unsigned','id' => true,
+
+- **Ejemplo Mappings PHP**
 ```php
 <?php
 //AppArray.php
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\ClassMetadataInfo;
 
+$metadata->setInheritanceType(ClassMetadataInfo::INHERITANCE_TYPE_NONE);
+$metadata->setPrimaryTable(array(
+   'name' => 'app_array',
+  ));
+$metadata->setChangeTrackingPolicy(ClassMetadataInfo::CHANGETRACKING_DEFERRED_IMPLICIT);
+$metadata->mapField(array(
+   'fieldName' => 'id',
+   'columnName' => 'id',
+   'type' => 'integer',
+   'nullable' => true,
+   'options' => 
+   array(
+   'unsigned' => false,
+   ),
+   'id' => true,
+  ));
+```
+
+- **Ejemplo Mappings - Annotation (PHP)**
+
+```php
+<?php
+namespace Models\Application;
+use Doctrine\ORM\Mapping as ORM;
 /**
- * AppArray
+ * AppActivity
  *
- * @ORM\Table(name="app_array")
+ * @ORM\Table(name="app_activity")
  * @ORM\Entity
  */
-class AppArray
+class AppActivity
 {
     /**
      * @var integer
-     *
      * @ORM\Column(name="id", type="integer", nullable=true)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
+    /**
+     * @var string
+     * @ORM\Column(name="processflag", type="text", nullable=true)
+     */
+    private $processflag;
+```
+
+
+### Mappings Annotation, XML, YAML
+```
+php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --from-database xml "./mappings-xml"
+php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --from-database yaml "./mappings-yaml"
 ```
 - **Ejemplo Mappings - XML**
 ```xml
@@ -124,37 +163,7 @@ AppArray:
                 fixed: false
 ```
 
-### Mappings PHP
-```
-php vendor\doctrine\orm\bin\doctrine orm:convert-mapping --from-database php ".\mappings-php"
-```
 
-Los **mappings-php** son los archivos con la configuración de los campos.
-'fieldName','columnName','type','nullable','options','unsigned','id' => true,
-
-- **Ejemplo Mappings PHP**
-```php
-<?php
-//AppArray.php
-use Doctrine\ORM\Mapping\ClassMetadataInfo;
-
-$metadata->setInheritanceType(ClassMetadataInfo::INHERITANCE_TYPE_NONE);
-$metadata->setPrimaryTable(array(
-   'name' => 'app_array',
-  ));
-$metadata->setChangeTrackingPolicy(ClassMetadataInfo::CHANGETRACKING_DEFERRED_IMPLICIT);
-$metadata->mapField(array(
-   'fieldName' => 'id',
-   'columnName' => 'id',
-   'type' => 'integer',
-   'nullable' => true,
-   'options' => 
-   array(
-   'unsigned' => false,
-   ),
-   'id' => true,
-  ));
-```
 ### Entities Bundle (entities-bundle)
 - Antes de ejecutar este comando hay que configurar la ruta de las anotaciones en archivo bootstrap.php
 ```
