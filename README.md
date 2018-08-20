@@ -279,6 +279,37 @@ class AppArray
     }
 ```
 
+### REPOSITORIES (comando: generate-repositories)
+- Antes de ejecutar este comando hay que configurar en **bootstrap.php** la ruta del/de los archivos de mapeo de campos generados con el 
+comando `orm:convert-mapping`
+
+```bash
+php vendor/doctrine/orm/bin/doctrine orm:generate-repositories --filter AppActivity ./repositories
+```
+
+- Me está dando este error:
+```
+Notice: Undefined variable: metadata in C:\xampp\htdocs\borrame\mappings-php\AppActivity.php on line 5
+
+Fatal error: Uncaught Error: Call to a member function setInheritanceType() on null in C:\xampp\htdocs\borrame\mappings-php\AppActivity.php:5
+Stack trace:
+#0 C:\xampp\htdocs\borrame\vendor\doctrine\common\lib\Doctrine\Common\Persistence\Mapping\Driver\AnnotationDriver.php(236): 
+    require_once()
+    
+#1 C:\xampp\htdocs\borrame\vendor\doctrine\common\lib\Doctrine\Common\Persistence\Mapping\AbstractClassMetadataFactory.php(114): 
+    Doctrine\Common\Persistence\Mapping\Driver\AnnotationDriver->getAllClassNames()
+    
+#2 C:\xampp\htdocs\borrame\vendor\doctrine\orm\lib\Doctrine\ORM\Tools\Console\Command\GenerateRepositoriesCommand.php(73): 
+    Doctrine\Common\Persistence\Mapping\AbstractClassMetadataFactory->getAllMetadata()
+    
+#3 C:\xampp\htdocs\borrame\vendor\symfony\console\Command\Command.php(264): 
+    Doctrine\ORM\Tools\Console\Command\GenerateRepositoriesCommand->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+    
+#4 C:\xampp\htdocs\borrame\vendor\symfony\console\Application.php(841): 
+    S in C:\xampp\htdocs\borrame\mappings-php\AppActivity.php on line 5
+
+```
+
 ### PROXIES (comando: orm:generate-proxies)
 - antes de ejecutar este comando es necesario tener configurada la ruta de archivos con anotaciones. Incluso valdria una **"Entidad"** con **@ORM\\***
 ```
@@ -423,37 +454,6 @@ class AppArray extends \AppArray implements \Doctrine\ORM\Proxy\Proxy
      */
     public function __getLazyProperties(){return self::$lazyPropertiesDefaults;}
 }
-```
-
-### REPOSITORIES (comando: generate-repositories)
-- Antes de ejecutar este comando hay que configurar en **bootstrap.php** la ruta del/de los archivos de mapeo de campos generados con el 
-comando `orm:convert-mapping`
-
-```bash
-php vendor/doctrine/orm/bin/doctrine orm:generate-repositories --filter AppActivity ./repositories
-```
-
-- Me está dando este error:
-```
-Notice: Undefined variable: metadata in C:\xampp\htdocs\borrame\mappings-php\AppActivity.php on line 5
-
-Fatal error: Uncaught Error: Call to a member function setInheritanceType() on null in C:\xampp\htdocs\borrame\mappings-php\AppActivity.php:5
-Stack trace:
-#0 C:\xampp\htdocs\borrame\vendor\doctrine\common\lib\Doctrine\Common\Persistence\Mapping\Driver\AnnotationDriver.php(236): 
-    require_once()
-    
-#1 C:\xampp\htdocs\borrame\vendor\doctrine\common\lib\Doctrine\Common\Persistence\Mapping\AbstractClassMetadataFactory.php(114): 
-    Doctrine\Common\Persistence\Mapping\Driver\AnnotationDriver->getAllClassNames()
-    
-#2 C:\xampp\htdocs\borrame\vendor\doctrine\orm\lib\Doctrine\ORM\Tools\Console\Command\GenerateRepositoriesCommand.php(73): 
-    Doctrine\Common\Persistence\Mapping\AbstractClassMetadataFactory->getAllMetadata()
-    
-#3 C:\xampp\htdocs\borrame\vendor\symfony\console\Command\Command.php(264): 
-    Doctrine\ORM\Tools\Console\Command\GenerateRepositoriesCommand->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
-    
-#4 C:\xampp\htdocs\borrame\vendor\symfony\console\Application.php(841): 
-    S in C:\xampp\htdocs\borrame\mappings-php\AppActivity.php on line 5
-
 ```
 
 # comando doctrine
