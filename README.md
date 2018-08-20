@@ -46,7 +46,7 @@
 
 ## Comandos a ejecutar dentro de la carpeta del proyecto
 
-### MAPPINGS ANNOTATION
+### MAPPINGS (comando: orm:convert-mapping)
 
 - Los **mappings annotations** son los archivos de metadatos con los atributos en private y configurados con valor por defecto.
 - Estos ficheros son necesarios para generar el resto de tipos como los entities
@@ -55,7 +55,7 @@
 
 #### Mappings (archivos .php)
 ```
-# Entidades
+# Entidades con anotaciones
 php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --filter App[A-Z]  --from-database --namespace="Models\Application\\"  annotation "./mappings-annotations"
 php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --filter Base[A-Z]  --from-database --namespace="Models\Base\\"  annotation "./mappings-annotations"
 php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --filter Com[A-Z]  --from-database --namespace "Models\Comms\\"  annotation "./mappings-annotations"
@@ -64,7 +64,7 @@ php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --filter Com[A-Z]  --fr
 php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --from-database php "./mappings-php"
 ```
 
-#### Mapeo de Entidades
+#### Mapeo de Entidades (con anotaciones)
 - **Ejemplo Mappings - Annotation (Modelo con: ns, get-set y anotaciones)**
 ```
 php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --filter AppActivity  --from-database --namespace="Models\Application\\"  annotation "./mappings-annotations"
@@ -172,18 +172,7 @@ AppArray:
                 fixed: false
 ```
 
-
-#### Entities Bundle (entities-bundle)
-- Antes de ejecutar este comando hay que configurar la ruta de las anotaciones en archivo bootstrap.php
-```
-php vendor/doctrine/orm/bin/doctrine orm:generate-entities --filter Base[a-z,A-Z]* --generate-annotations=1 --generate-methods=1  ./entities-bundle
-```
-
-#### Entities
-```
-php vendor/doctrine/orm/bin/doctrine orm:generate-entities "./entities"
-```
-
+### ENTITIES (comando: orm:generate-entities)
 - Las **Entities** son los archivos con los `atributos = campos` de las tablas y sus anotaciones de tipado. 
 - Llevan implementadas sus **getters** y sus **setters**.
 - Son los modelos de dominio.
@@ -191,11 +180,53 @@ php vendor/doctrine/orm/bin/doctrine orm:generate-entities "./entities"
 `$sPathSrc = __DIR__."/mappings-annotations";` Se le tiene que indicar a doctrine donde se encuentran los metadatos de modo que con estas anotaciones
 sea capaz de generar los modelos 
 - La dif entre Entities y Entities-Bundle es que 'bundle' tiene más anotaciones que son necesarias para crear el bundle de repositorio
-- 
 
+- Antes de ejecutar este comando hay que configurar la ruta de las anotaciones en archivo bootstrap.php
 ```php
 $config = Setup::createAnnotationMetadataConfiguration([$arPaths["mappings-annotations"]]
         ,$isDevMode,null,null,false);
+```
+
+#### Entities @ORM\* (entities-bundle)
+```
+# generate-annotations  tags @ORM\* en los campos
+# generate-methods      getters y setters
+php vendor/doctrine/orm/bin/doctrine orm:generate-entities --filter AppActivity --generate-annotations=1 --generate-methods=1  ./entities-bundle
+```
+
+- **Ejemplo @ORM**
+```php
+<?php
+namespace Models\Application;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * AppActivity
+ * @ORM\Table(name="app_activity")
+ * @ORM\Entity
+ */
+class AppActivity
+{
+    /**
+     * @var integer
+     * @ORM\Column(name="id", type="integer", precision=0, scale=0, nullable=true, unique=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     * @ORM\Column(name="processflag", type="text", precision=0, scale=0, nullable=true, unique=false)
+     */
+    private $processflag;
+
+```
+
+#### Entities (sin argumentos)
+```
+php vendor/doctrine/orm/bin/doctrine orm:generate-entities "./entities"
 ```
 
 - **Ejemplo Entities**
