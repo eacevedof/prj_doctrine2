@@ -40,50 +40,98 @@
 1. [Youtube - SOLID - Principios de diseño de software y patrones de diseño](https://www.youtube.com/watch?v=j_ZnM8FJcmA)
 2. [Youtube - Doctrine ORM Good Practices and Tricks - Marco "Ocramius" Pivetta @ PHP Antwerp](https://www.youtube.com/watch?v=j4nS_dGxxs8)
 3. https://github.com/Ocramius/Doctrine2ORMSlidesTutorial
+4. [Blog - Generate Doctrine2 from existing db](https://jejakroda.wordpress.com/2011/02/03/generate-doctrine2-mappings-from-existing-database/)
 
 ## Pruebas básicas de doctrine 2.5
 
 ## Comandos a ejecutar dentro de la carpeta del proyecto
 
-### Mappings Annotation, XML, YAML
-```
-php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --filter AppP  --from-database --namespace="Models\Application\\"  annotation "./mappings-annotations"
-php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --filter Base[a-z,A-Z]+  --from-database --namespace="Models\Base\\"  annotation "./mappings-annotations"
-php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --from-database --filter Com[a-z,A-Z]* --namespace "Models/Comms/"  annotation "./mappings-annotations"
-
-php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --from-database xml "./mappings-xml"
-
-php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --from-database yaml "./mappings-yaml"
-```
+### MAPPINGS (comando: orm:convert-mapping)
 
 - Los **mappings annotations** son los archivos de metadatos con los atributos en private y configurados con valor por defecto.
 - Estos ficheros son necesarios para generar el resto de tipos como los entities
 - Despues de generar estas clases habria que configurar Entity(repositoryClass="") con los namespaces oportunos
 - Ejemplo: `* @ORM\Entity(repositoryClass="AppBundle\Entities\BaseArray")`
 
-- **Ejemplo Mappings - Annotation (PHP)**
+#### Mappings (archivos .php)
+```
+# Entidades con anotaciones
+php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --filter App[A-Z]  --from-database --namespace="Models\Application\\"  annotation "./mappings-annotations"
+php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --filter Base[A-Z]  --from-database --namespace="Models\Base\\"  annotation "./mappings-annotations"
+php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --filter Com[A-Z]  --from-database --namespace "Models\Comms\\"  annotation "./mappings-annotations"
+
+# Campos para loader, no admite flag annotation
+php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --from-database php "./mappings-php"
+```
+
+#### Mapeo de Entidades (con anotaciones)
+- **Ejemplo Mappings - Annotation (Modelo con: ns, get-set y anotaciones)**
+```
+php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --filter AppActivity  --from-database --namespace="Models\Application\\"  annotation "./mappings-annotations"
+```
+
 ```php
 <?php
-//AppArray.php
+namespace Models\Application;
 use Doctrine\ORM\Mapping as ORM;
-
 /**
- * AppArray
+ * AppActivity
  *
- * @ORM\Table(name="app_array")
+ * @ORM\Table(name="app_activity")
  * @ORM\Entity
  */
-class AppArray
+class AppActivity
 {
     /**
      * @var integer
-     *
      * @ORM\Column(name="id", type="integer", nullable=true)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
+    /**
+     * @var string
+     * @ORM\Column(name="processflag", type="text", nullable=true)
+     */
+    private $processflag;
+```
+
+#### Mapeo de campos en PHP (sin anotaciones)
+```
+php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --filter AppActivity --from-database php "./mappings-php"
+```
+
+Los **mappings-php** son los archivos con la configuración de los campos.
+'fieldName','columnName','type','nullable','options','unsigned','id' => true,
+
+- **Ejemplo Mappings - Campos**
+```php
+<?php
+//AppActivity.php
+use Doctrine\ORM\Mapping\ClassMetadataInfo;
+$metadata->setInheritanceType(ClassMetadataInfo::INHERITANCE_TYPE_NONE);
+$metadata->setPrimaryTable(array(
+   'name' => 'app_activity',
+  ));
+$metadata->setChangeTrackingPolicy(ClassMetadataInfo::CHANGETRACKING_DEFERRED_IMPLICIT);
+$metadata->mapField(array(
+   'fieldName' => 'id',
+   'columnName' => 'id',
+   'type' => 'integer',
+   'nullable' => true,
+   'options' => 
+   array(
+   'unsigned' => false,
+   ),
+   'id' => true,
+  ));
+```
+
+#### Mapeo de campos en XML y YAML (sin anotaciones)
+```
+php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --from-database xml "./mappings-xml"
+php vendor/doctrine/orm/bin/doctrine orm:convert-mapping --from-database yaml "./mappings-yaml"
 ```
 - **Ejemplo Mappings - XML**
 ```xml
@@ -124,48 +172,7 @@ AppArray:
                 fixed: false
 ```
 
-### Mappings PHP
-```
-php vendor\doctrine\orm\bin\doctrine orm:convert-mapping --from-database php ".\mappings-php"
-```
-
-Los **mappings-php** son los archivos con la configuración de los campos.
-'fieldName','columnName','type','nullable','options','unsigned','id' => true,
-
-- **Ejemplo Mappings PHP**
-```php
-<?php
-//AppArray.php
-use Doctrine\ORM\Mapping\ClassMetadataInfo;
-
-$metadata->setInheritanceType(ClassMetadataInfo::INHERITANCE_TYPE_NONE);
-$metadata->setPrimaryTable(array(
-   'name' => 'app_array',
-  ));
-$metadata->setChangeTrackingPolicy(ClassMetadataInfo::CHANGETRACKING_DEFERRED_IMPLICIT);
-$metadata->mapField(array(
-   'fieldName' => 'id',
-   'columnName' => 'id',
-   'type' => 'integer',
-   'nullable' => true,
-   'options' => 
-   array(
-   'unsigned' => false,
-   ),
-   'id' => true,
-  ));
-```
-### Entities Bundle (entities-bundle)
-- Antes de ejecutar este comando hay que configurar la ruta de las anotaciones en archivo bootstrap.php
-```
-php vendor/doctrine/orm/bin/doctrine orm:generate-entities --filter Base[a-z,A-Z]* --generate-annotations=1 --generate-methods=1  ./entities-bundle
-```
-
-### Entities
-```
-php vendor/doctrine/orm/bin/doctrine orm:generate-entities "./entities"
-```
-
+### ENTITIES (comando: orm:generate-entities)
 - Las **Entities** son los archivos con los `atributos = campos` de las tablas y sus anotaciones de tipado. 
 - Llevan implementadas sus **getters** y sus **setters**.
 - Son los modelos de dominio.
@@ -173,11 +180,53 @@ php vendor/doctrine/orm/bin/doctrine orm:generate-entities "./entities"
 `$sPathSrc = __DIR__."/mappings-annotations";` Se le tiene que indicar a doctrine donde se encuentran los metadatos de modo que con estas anotaciones
 sea capaz de generar los modelos 
 - La dif entre Entities y Entities-Bundle es que 'bundle' tiene más anotaciones que son necesarias para crear el bundle de repositorio
-- 
 
+- Antes de ejecutar este comando hay que configurar la ruta de las anotaciones en archivo bootstrap.php
 ```php
 $config = Setup::createAnnotationMetadataConfiguration([$arPaths["mappings-annotations"]]
         ,$isDevMode,null,null,false);
+```
+
+#### Entities @ORM\* (entities-bundle)
+```
+# generate-annotations  tags @ORM\* en los campos
+# generate-methods      getters y setters
+php vendor/doctrine/orm/bin/doctrine orm:generate-entities --filter AppActivity --generate-annotations=1 --generate-methods=1  ./entities-bundle
+```
+
+- **Ejemplo @ORM**
+```php
+<?php
+namespace Models\Application;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * AppActivity
+ * @ORM\Table(name="app_activity")
+ * @ORM\Entity
+ */
+class AppActivity
+{
+    /**
+     * @var integer
+     * @ORM\Column(name="id", type="integer", precision=0, scale=0, nullable=true, unique=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     * @ORM\Column(name="processflag", type="text", precision=0, scale=0, nullable=true, unique=false)
+     */
+    private $processflag;
+
+```
+
+#### Entities (sin argumentos)
+```
+php vendor/doctrine/orm/bin/doctrine orm:generate-entities "./entities"
 ```
 
 - **Ejemplo Entities**
@@ -230,9 +279,58 @@ class AppArray
     }
 ```
 
-### Proxies
+### REPOSITORIES (comando: generate-repositories)
+- Antes de ejecutar este comando hay que configurar en **bootstrap.php** la ruta del/de los archivos de mapeo de campos generados con el 
+comando `orm:convert-mapping` 
+- `$oConfig = Setup::createAnnotationMetadataConfiguration([$arPaths["mappings-annotations"]],$isDevMode,null,null,false);`
+- La anotación:  `@ORM\Entity` debe pasar a ser `@ORM\Entity(repositoryClass="Repositories\Application\AppActivityRepository")`
+
+```bash
+php vendor\doctrine\orm\bin\doctrine orm:generate-repositories --filter AppActivity .\repositories
 ```
-php vendor\doctrine\orm\bin\doctrine orm:generate-proxies ".\proxies"
+- **Ejemplo Repository**
+```php
+//repositories/Repositories/Application/AppActivityRepository.php
+<?php
+namespace Repositories\Application;
+
+/**
+ * AppActivityRepository
+ * This class was generated by the Doctrine ORM. Add your own custom
+ * repository methods below.
+ */
+class AppActivityRepository extends \Doctrine\ORM\EntityRepository
+{
+
+}
+```
+
+- Me estaba dando este error:
+```
+Notice: Undefined variable: metadata in C:\xampp\htdocs\borrame\mappings-php\AppActivity.php on line 5
+
+Fatal error: Uncaught Error: Call to a member function setInheritanceType() on null in C:\xampp\htdocs\borrame\mappings-php\AppActivity.php:5
+Stack trace:
+#0 C:\xampp\htdocs\borrame\vendor\doctrine\common\lib\Doctrine\Common\Persistence\Mapping\Driver\AnnotationDriver.php(236): 
+    require_once()
+    
+#1 C:\xampp\htdocs\borrame\vendor\doctrine\common\lib\Doctrine\Common\Persistence\Mapping\AbstractClassMetadataFactory.php(114): 
+    Doctrine\Common\Persistence\Mapping\Driver\AnnotationDriver->getAllClassNames()
+    
+#2 C:\xampp\htdocs\borrame\vendor\doctrine\orm\lib\Doctrine\ORM\Tools\Console\Command\GenerateRepositoriesCommand.php(73): 
+    Doctrine\Common\Persistence\Mapping\AbstractClassMetadataFactory->getAllMetadata()
+    
+#3 C:\xampp\htdocs\borrame\vendor\symfony\console\Command\Command.php(264): 
+    Doctrine\ORM\Tools\Console\Command\GenerateRepositoriesCommand->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+    
+#4 C:\xampp\htdocs\borrame\vendor\symfony\console\Application.php(841): 
+    S in C:\xampp\htdocs\borrame\mappings-php\AppActivity.php on line 5
+```
+
+### PROXIES (comando: orm:generate-proxies)
+- antes de ejecutar este comando es necesario tener configurada la ruta de archivos con anotaciones. Incluso valdria una **"Entidad"** con **@ORM\\***
+```
+php vendor/doctrine/orm/bin/doctrine orm:generate-proxies --filter AppActivity "./proxies"
 ```
 
 - Son clases tipo __CG__<NomTabla>.php con métodos básicos: 
@@ -375,26 +473,8 @@ class AppArray extends \AppArray implements \Doctrine\ORM\Proxy\Proxy
 }
 ```
 
-```
-/*
-no funciona, no crea el atributo repositoryClass
-*/
-php vendor/doctrine/orm/bin/doctrine orm:generate-entities --filter Base[a-z,A-Z]* --generate-annotations=1 --generate-methods=1  ./entities-bundle
-
-/*
-Añado manualmente el atributo Entity(repositoryClass="") en las clases de la carpeta: "entities-bundle"
-Cambio en bootstrap el origen a "entities-bundle":
-createAnnotationMetadataConfiguration([$arPaths["entities-bundle"]], $isDevMode, null, null, false);
-y ejecuto el comando
-*/
-php ./vendor/doctrine/orm/bin/doctrine orm:generate-repositories ./repositories-bundle
-
-```
-
 # comando doctrine
 ```
-# 
-
 Doctrine Command Line Interface 2.5.12
 
 Usage:
