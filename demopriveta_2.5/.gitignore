@@ -1,0 +1,4 @@
+vendor
+index.php
+/nbproject/
+!/index.php
